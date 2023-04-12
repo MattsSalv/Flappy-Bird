@@ -6,9 +6,9 @@ Il progetto ha l'obbiettivo di utilizzare l'algoritmo genetico ***NEAT*** per im
 
 Il gioco è stato ricreato in Python ed è stata utilizzata la libreria ***NEAT-Python*** per implementare l'algoritmo genetico.
 
->**NB** è necessario installare le seguenti librerie per avviare il programma: \
->• NEAT-Python <https://neat-python.readthedocs.io/en/latest/installation.html> \
->• ...
+>**NB** è necessario installare le seguenti librerie per avviare il programma: 
+> - NEAT-Python <https://neat-python.readthedocs.io/en/latest/installation.html> 
+> - ...
 
 
 
