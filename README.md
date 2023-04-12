@@ -1,4 +1,5 @@
-# Vincere a Flappy Bird grazie all'IA 
+# Vincere a Flappy Bird grazie all'IA      <img src="https://unibs.coursecatalogue.cineca.it/img/unibs/logo.png" alt= “” width="10%" height="10%">
+
 ***Breve spiegazione***
 
 Il progetto ha l'obbiettivo di utilizzare l'algoritmo genetico ***NEAT*** per imparare a giocare a ***Flappy Bird***.
