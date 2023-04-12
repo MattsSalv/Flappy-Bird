@@ -1,6 +1,6 @@
 # Vincere a Flappy Bird grazie all'IA      <img src="https://unibs.coursecatalogue.cineca.it/img/unibs/logo.png" alt= “” width="10%" height="10%">
 
-***Breve spiegazione***
+***Breve spiegazione (DA CANCELLARE)***
 
 Il progetto ha l'obbiettivo di utilizzare l'algoritmo genetico ***NEAT*** per imparare a giocare a ***Flappy Bird***.
 
@@ -13,11 +13,11 @@ Il gioco è stato ricreato in Python ed è stata utilizzata la libreria ***NEAT-
 
 
 ## Avviare il programma
-***comandi base solo per far partire il programma***
+***comandi base solo per far partire il programma (DA CANCELLARE)***
 
 
 ## NEAT
-***Breve spiegazione di NeuroEvolution of Augmenting Topologies*** \
+***Breve spiegazione di NeuroEvolution of Augmenting Topologies (DA CANCELLARE)*** \
 ***NeuroEvolution of Augmenting Topologies*** (**NEAT**) è un *algoritmo genetico* (GA) per la generazione di *reti neurali evolutive artificiali*. La sua unicità è data dalla  capaità di creare una sua struttura sempre più complessa e nel contempo sempre più ottimale (analoga all'evoluzione naturale). 
 L'alogritmo è stato originariamente sviluppato Kenneth Stanley e Risto Miikkulainen nel 2002 all'Università del Texas ad Austin. 
 
@@ -33,7 +33,7 @@ L'algorimo si basa su tre princìpi fondamentali:
 
 
 ## FLAPPY BIRD IA
-***Spiegazione del codice per intero (solo le parti essenziali)***
+***Spiegazione del codice per intero (solo le parti essenziali) (DA CANCELLARE)***
 
 
 ## Avvia il codice in Gitpod
