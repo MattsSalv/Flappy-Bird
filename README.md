@@ -1,4 +1,4 @@
-# Vincere a Flappy Bird grazie all'IA  <img src="https://unibs.coursecatalogue.cineca.it/img/unibs/logo.png" alt= “” width="10%" height="10%">
+# Vincere a Flappy Bird grazie all'IA  <img src="https://unibs.coursecatalogue.cineca.it/img/unibs/logo.png" alt= “” width="8%" height="8%">
 
 ***Breve spiegazione (DA CANCELLARE)***
 
