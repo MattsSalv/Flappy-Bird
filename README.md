@@ -21,3 +21,7 @@ Il gioco è stato ricreato in Python ed è stata utilizzata la libreria ***NEAT-
 
 ## FLAPPY BIRD IA
 ***Spiegazione del codice per intero (solo le parti essenziali)***
+
+
+## Avvia in Gitpod
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/MattsSalv/Flappy-Bird)
