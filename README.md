@@ -1,6 +1,8 @@
-# Come lo chiamiamo questo bel progettino? Ci penso :)
+# Vincere a Flappy Bird grazie all'IA 
+// Breve spiegazione
+Il progetto ha l'obbiettivo di utilizzare l'algoritmo genetico NEAT per imparare a giocare a Flappy Bird. 
 
-Breve spiegazione del progetto
+Il gioco è stato ricreato in Python ed è stata utilizzata la libreria ...NEAT per Python.
 
 
 ## Avviare il programma
