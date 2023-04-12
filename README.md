@@ -37,4 +37,4 @@ L'algorimo si basa su tre princìpi fondamentali:
 
 
 ## Avvia il codice in Gitpod
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/MattsSalv/Flappy-Bird)
+[![Avvia in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/MattsSalv/Flappy-Bird)
