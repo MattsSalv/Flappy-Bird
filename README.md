@@ -16,8 +16,17 @@ Il gioco è stato ricreato in Python ed è stata utilizzata la libreria ***NEAT-
 
 
 
+<br> <br>
+
+
+
 ## Avviare il programma
 ***comandi base solo per far partire il programma (DA CANCELLARE)***
+
+
+
+<br> <br>
+
 
 
 ## NEAT
@@ -36,8 +45,18 @@ L'algorimo si basa su tre princìpi fondamentali:
 3. **STRUTTURA MINIMA**: da ultimo, il principio secondo cui la ricerca di una soluzione dovrebbe avvenire nel più piccolo spazio possibile (inteso come numero di dimensioni), da espandere poi in maniera graduale. Cominciando il processo evolutivo da una popolazione di elementi a struttura minima, le successive mutazioni topologiche comportano l'aggiunta di nuovi nodi e connessioni alle reti, conducendo pertanto ad una crescita incrementale della popolazione stessa. Dal momento che solo le modifiche strutturali vantaggiose tendono a sopravvivere nel lungo termine, le topologie che vengono raffinate tendono ad essere le minime necessarie alla soluzione del problema assegnato.
 
 
+
+<br> <br>
+
+
+
 ## FLAPPY BIRD IA
 ***Spiegazione del codice per intero (solo le parti essenziali) (DA CANCELLARE)***
+
+
+
+<br> <br>
+
 
 
 ## Avvia il codice in Gitpod
