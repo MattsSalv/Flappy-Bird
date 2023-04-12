@@ -1,10 +1,14 @@
-# Vincere a Flappy Bird grazie all'IA      <img src="https://unibs.coursecatalogue.cineca.it/img/unibs/logo.png" alt= “” width="10%" height="10%">
+# Vincere a Flappy Bird grazie all'IA  <img src="https://unibs.coursecatalogue.cineca.it/img/unibs/logo.png" alt= “” width="10%" height="10%">
 
 ***Breve spiegazione (DA CANCELLARE)***
 
 Il progetto ha l'obbiettivo di utilizzare l'algoritmo genetico ***NEAT*** per imparare a giocare a ***Flappy Bird***.
 
 Il gioco è stato ricreato in Python ed è stata utilizzata la libreria ***NEAT-Python*** per implementare l'algoritmo genetico.
+
+<p align="center">
+ <img src="https://camo.githubusercontent.com/5e656e64dcc8f64ce979dd03f00545e92e80833e191df3af09534c45b048c759/687474703a2f2f696d672e796f75747562652e636f6d2f76692f4834576e524c45473733512f302e6a7067" alt= “” width="50%" height="50%">
+</p>
 
 >**NB** è necessario installare le seguenti librerie per avviare il programma: 
 > - NEAT-Python <https://neat-python.readthedocs.io/en/latest/installation.html> 
