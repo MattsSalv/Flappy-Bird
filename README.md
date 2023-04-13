@@ -48,9 +48,10 @@ L'algorimo si basa su tre princìpi fondamentali:
 
 <br> <br>
 
+## COME VIENE USATO NEAT IN FLAPPY BIRD
+ ***Spiegazione di come neat è stato implementanto nel gioco (DA CANCELLARE)***
 
-
-## FLAPPY BIRD IA
+## FLAPPY BIRD IA CODE
 ***Spiegazione del codice per intero (solo le parti essenziali) (DA CANCELLARE)***
 
 
