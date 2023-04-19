@@ -38,11 +38,7 @@ Il gioco è stato ricreato in Python ed è stata utilizzata la libreria ***NEAT-
 
 
 ## NEAT
-***Breve spiegazione di NeuroEvolution of Augmenting Topologies (DA CANCELLARE)*** 
-
-<br>
- 
-***NeuroEvolution of Augmenting Topologies*** (**NEAT**) è un *algoritmo genetico* (GA) per la generazione di *reti neurali evolutive artificiali*. La sua unicità è data dalla  capaità di creare una sua struttura sempre più complessa e nel contempo sempre più ottimale (analoga all'evoluzione naturale). 
+***NeuroEvolution of Augmenting Topologies*** (**NEAT**) è un *algoritmo genetico* (GA) per la generazione di *reti neurali evolutive artificiali*, per la risoluzione di attività di *Reinforcement Learning*, in particolare qquando si è in presenza di informazioni *Hidden State*. La sua unicità è data dalla  capaità di creare una sua struttura sempre più complessa e nel contempo sempre più ottimale (analoga all'evoluzione naturale). 
 L'alogritmo è stato originariamente sviluppato Kenneth Stanley e Risto Miikkulainen nel 2002 all'Università del Texas ad Austin. 
 
 A partire da reti estremamente semplici, in quanto completamente prive di neuroni intermedi, NEAT ha generalmente performance più elevate nella ricerca di soluzioni  efficaci e robuste rispetto ad algoritmni di *reinforcement leaening* o a tecniche neuro-evolutive analoghe che però partono da topologie predeterminate o comunque casuali. 
@@ -59,39 +55,9 @@ L'algorimo si basa su tre princìpi fondamentali:
 
 <br> <br>
 
-## COME VIENE IMPLEMENTATA L'AI E NEAT IN FLAPPY BIRD(Correggere il testo)
+## COME VIENE USATO NEAT IN FLAPPY BIRD
  ***Spiegazione di come neat è stato implementanto nel gioco (DA CANCELLARE)***
  
-**Cosa è Flappy Bird?** 
-
-Flappy Bird è un gioco arcade sviluppato da Dong Nguyen nel 2013. Il gioco è molto semplice ma altrettanto difficile: i giocatori devono controllare un uccellino attraverso una serie di tubi, premendo sullo schermo per farlo sbattere le ali e volare. Lo scopo del gioco è di ottenere il punteggio più alto possibile, evitando di toccare qualsiasi ostacolo sulla strada.
-
-L'intelligenza artificale applicata a  flappy bird, esegue una serie di generazioni, dove l'ia migliora esponenzialmente fino ad arrivare ad un punto in cui non può essere battuto e il gioco continui all'infinito.
-
-Per realizzare un'intelligenza artificiale in grado di giocare a flappy bird sono state utilizzate le reti neurali, ovvero un tipo di modello di apprendimento automatico che sono ispirati alla struttura e al funzionamento del cervello umano.
-Le reti neurali sono composte da diversi livelli(Layer), nel nostro gioco avremo un primo livello chiamato ***Input Layer***, ovvero le informazioni che la nostra rete neurale conosce e un livello finale chiamato ***Output Layer*** che si occupa di dice all'AI cosa fare.
-In flappy bird le informazioni che conosciamo a priori sono la posizone dell'uccellino e la posizione dei tubi, grazie a queste informazioni è possibile calcolare la distanza che separa l'uccellino dai tubi, quest'ultime assieme alla posizione dell'uccellino saranno le informazioni in input alla nostra rete neurale.
-Sul nodo di output la rete neurale dirà all'uccellino se saltare o no.
-
-<p align="center">
- <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/neural.png" alt= “” width="40%" height="40%">
-</p>
-
-***INSERIRE IMMAGINE UCCELLINO CON PARAMETRI***
-
-I nodi dell'input layer sono collegati al nodo dell'output layer tramite una connessione, ognuna di queste connessioni ha un peso chiamato, ***Weight***. 
-Il valore del wheight è diverso per ogni connessione è il suo scopo è quello di migliorare, o in alcuni casi, peggiorare la rete neurale.
-
-
-<p align="center">
- <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/weight.png" alt= “” width="40%" height="40%">
-</p>
-
-
-***Come funziona la rete neurale in Flappy Bird?
-
-
-
 <br> <br>
 
 
