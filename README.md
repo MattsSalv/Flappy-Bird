@@ -1,7 +1,8 @@
 # Vincere a Flappy Bird grazie all'IA  <img src="https://www.unidformazione.com/wp-content/uploads/2017/10/unibs-universita-di-brescia.jpg" style="background-color:white;" alt= “error” width="20%" height="20%" align="right"> 
 <p align="center" ><b><i>di Mattia Salvatti e Claudio Onorati </b></i></p>
 
-<br>
+<br> <br>
+ 
  
 ***Breve spiegazione (DA CANCELLARE)***
 
