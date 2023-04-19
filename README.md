@@ -10,7 +10,7 @@ Il progetto ha l'obbiettivo di utilizzare l'algoritmo genetico ***NEAT*** per im
 Il gioco è stato ricreato in Python ed è stata utilizzata la libreria ***NEAT-Python*** per implementare l'algoritmo genetico.
 
 <p align="center">
- <img src="https://camo.githubusercontent.com/5e656e64dcc8f64ce979dd03f00545e92e80833e191df3af09534c45b048c759/687474703a2f2f696d672e796f75747562652e636f6d2f76692f4834576e524c45473733512f302e6a7067" alt= “” width="50%" height="50%">
+ <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/Cover.png" alt= “” width="40%" height="40%">
 </p>
 
 >**NB** è necessario installare le seguenti librerie per avviare il programma: 
