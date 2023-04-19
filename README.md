@@ -37,7 +37,10 @@ Il gioco è stato ricreato in Python ed è stata utilizzata la libreria ***NEAT-
 
 
 ## NEAT
-***Breve spiegazione di NeuroEvolution of Augmenting Topologies (DA CANCELLARE)*** \
+***Breve spiegazione di NeuroEvolution of Augmenting Topologies (DA CANCELLARE)*** 
+
+<br>
+ 
 ***NeuroEvolution of Augmenting Topologies*** (**NEAT**) è un *algoritmo genetico* (GA) per la generazione di *reti neurali evolutive artificiali*. La sua unicità è data dalla  capaità di creare una sua struttura sempre più complessa e nel contempo sempre più ottimale (analoga all'evoluzione naturale). 
 L'alogritmo è stato originariamente sviluppato Kenneth Stanley e Risto Miikkulainen nel 2002 all'Università del Texas ad Austin. 
 
@@ -57,6 +60,9 @@ L'algorimo si basa su tre princìpi fondamentali:
 
 ## COME VIENE USATO NEAT IN FLAPPY BIRD
  ***Spiegazione di come neat è stato implementanto nel gioco (DA CANCELLARE)***
+ 
+<br> <br>
+
 
 ## FLAPPY BIRD IA CODE
 ***Spiegazione del codice per intero (solo le parti essenziali) (DA CANCELLARE)***
