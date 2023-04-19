@@ -82,8 +82,33 @@ L'utilizzo dell'algoritmo porta i seguenti vantaggi rispetto ad analoghi GA:
 <br> <br>
 
 ## COME VIENE USATO NEAT IN FLAPPY BIRD
- ***Spiegazione di come neat è stato implementanto nel gioco (DA CANCELLARE)***
- 
+**Cosa è Flappy Bird?** 
+
+Flappy Bird è un gioco arcade sviluppato da Dong Nguyen nel 2013. Il gioco è molto semplice ma altrettanto difficile: i giocatori devono controllare un uccellino attraverso una serie di tubi, premendo sullo schermo per farlo sbattere le ali e volare. Lo scopo del gioco è di ottenere il punteggio più alto possibile, evitando di toccare qualsiasi ostacolo sulla strada.
+
+L'intelligenza artificale applicata a  flappy bird, esegue una serie di generazioni, dove l'ia migliora esponenzialmente fino ad arrivare ad un punto in cui non può essere battuto e il gioco continui all'infinito.
+
+Per realizzare un'intelligenza artificiale in grado di giocare a flappy bird sono state utilizzate le reti neurali, ovvero un tipo di modello di apprendimento automatico che sono ispirati alla struttura e al funzionamento del cervello umano.
+Le reti neurali sono composte da diversi livelli(Layer), nel nostro gioco avremo un primo livello chiamato ***Input Layer***, ovvero le informazioni che la nostra rete neurale conosce e un livello finale chiamato ***Output Layer*** che si occupa di dice all'AI cosa fare.
+In flappy bird le informazioni che conosciamo a priori sono la posizone dell'uccellino e la posizione dei tubi, grazie a queste informazioni è possibile calcolare la distanza che separa l'uccellino dai tubi, quest'ultime assieme alla posizione dell'uccellino saranno le informazioni in input alla nostra rete neurale.
+Sul nodo di output la rete neurale dirà all'uccellino se saltare o no.
+
+<p align="center">
+ <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/neural.png" alt= “” width="40%" height="40%">
+</p>
+
+***INSERIRE IMMAGINE UCCELLINO CON PARAMETRI***
+
+I nodi dell'input layer sono collegati al nodo dell'output layer tramite una connessione, ognuna di queste connessioni ha un peso chiamato, ***Weight***. 
+Il valore del wheight è diverso per ogni connessione è il suo scopo è quello di migliorare, o in alcuni casi, peggiorare la rete neurale.
+
+
+<p align="center">
+ <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/weight.png" alt= “” width="40%" height="40%">
+</p>
+
+
+***Come funziona la rete neurale in Flappy Bird?
 <br> <br>
 
 
