@@ -62,7 +62,15 @@ L'utilizzo dell'algoritmo porta i seguenti vantaggi rispetto ad analoghi GA:
 - **Gene Nodo**: Rappresenta il nodo vero e proprio, ognuno di essi trasporta l'informazione di *Numero di Nodo*, *Tipologia di Nodo* intesa come Input/Hidden/Output e altre informazioni.
 - **Gene di Connessione**: Collegamento tra due *Geni Nodo*, ognuno di essi trasposta l'informazione di *Nodo d'Ingresso*, *Nodo d'Uscita*, *Peso della Connessione*, un *Enable Bit* per l'espressione o non del gene, e un *Numero di Innovazione*
 - **Genotipo**: Singolo insieme di *Geni Nodo* e *Geni di Connessione*.
+<p align="center">
+ <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/Genoma.PNG" alt= “” width="40%" height="40%">
+</p>
+
 - **Fenotipo**: Singola rappresentazione della topologia di una singola rete di *Geni Nodo* e *Geni di Connessione*
+<p align="center">
+ <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/Fenotipo.PNG" alt= “” width="40%" height="40%">
+</p>
+
 - **Specie**:
 - **crossover**:
 - **Accoppiamento**:
