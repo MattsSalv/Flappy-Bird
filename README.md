@@ -14,6 +14,10 @@ Il gioco è stato ricreato in Python ed è stata utilizzata la libreria ***NEAT-
  <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/Cover.png" alt= “” width="40%" height="40%">
 </p>
 
+<br> 
+ 
+
+
 >**NB** è necessario installare le seguenti librerie per avviare il programma: 
 > - NEAT-Python <https://neat-python.readthedocs.io/en/latest/installation.html> 
 > - ...
