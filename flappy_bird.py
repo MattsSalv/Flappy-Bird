@@ -5,8 +5,8 @@ import os
 import random
 pygame.font.init()
 
-
-WIN_WIDTH = 500             #Dimensione delle finestra di gioco
+#Dimensione delle finestra di gioco
+WIN_WIDTH = 500             
 WIN_HEIGHT = 600
 
 #Nelle righe sottostanti vengono importante e ridemsnionate le immagini di gioco
