@@ -60,16 +60,16 @@ L'utilizzo dell'algoritmo porta i seguenti vantaggi rispetto ad analoghi GA:
 
 **DIZIONARIO NEAT:**
 - **Gene Nodo**: Rappresenta il nodo vero e proprio, ognuno di essi trasporta l'informazione di *Numero di Nodo*, *Tipologia di Nodo* intesa come Input/Hidden/Output e altre informazioni.
+<p align="center"> <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/Gene%20Nodo.PNG" alt= “” width="10%" height="10%"> </p>
+
 - **Gene di Connessione**: Collegamento tra due *Geni Nodo*, ognuno di essi trasposta l'informazione di *Nodo d'Ingresso*, *Nodo d'Uscita*, *Peso della Connessione*, un *Enable Bit* per l'espressione o non del gene, e un *Numero di Innovazione*
+<p align="center"> <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/Gene%20di%20Connessione.PNG" alt= “” width="10%" height="10%"> </p>
+
 - **Genotipo**: Singolo insieme di *Geni Nodo* e *Geni di Connessione*.
-<p align="center">
- <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/Genoma.PNG" alt= “” width="40%" height="40%">
-</p>
+<p align="center"> <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/Genoma.PNG" alt= “” width="40%" height="40%"> </p>
 
 - **Fenotipo**: Singola rappresentazione della topologia di una singola rete di *Geni Nodo* e *Geni di Connessione*
-<p align="center">
- <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/Fenotipo.PNG" alt= “” width="40%" height="40%">
-</p>
+<p align="center"> <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/Fenotipo.PNG" alt= “” width="40%" height="40%"> </p>
 
 - **Specie**:
 - **crossover**:
