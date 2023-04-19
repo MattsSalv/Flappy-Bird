@@ -2,9 +2,6 @@
 <p align="center" ><b><i>di Mattia Salvatti e Claudio Onorati </b></i></p>
 
 <br> <br>
- 
- 
-***Breve spiegazione (DA CANCELLARE)***
 
 Il progetto ha l'obbiettivo di utilizzare l'algoritmo genetico ***NEAT*** per imparare a giocare a ***Flappy Bird***.
 
@@ -29,7 +26,7 @@ Il gioco è stato ricreato in Python ed è stata utilizzata la libreria ***NEAT-
 
 
 ## Avviare il programma
-***comandi base solo per far partire il programma (DA CANCELLARE)***
+***comandi base  per avviare il programma (DA CANCELLARE)***
 
 
 
