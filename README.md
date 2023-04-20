@@ -108,12 +108,40 @@ Il valore del wheight è diverso per ogni connessione è il suo scopo è quello 
 </p>
 
 
-***Come funziona la rete neurale in Flappy Bird?
+***Come funziona la rete neurale in Flappy Bird?***
+
+Il primo passo è passare dei valori a nodi in input, successivamente per ogni connessione verrà assegnato un Weight, sccuessivamente a questi valori verranno applicate delle funzioni che permettaranno al nodo di outpt di eseguire una determinata azione.
+
+La prima azione che viene esegita è la somma ponderata $$\left \sum_({i=1}^n Input_i * Weight_i)\right$$ e il risultato verrà passato al nodo di output, successivamente sommato un parametro aggiuntivo chiamato BIAS, questo parametro ci permette di controllare la flessibilità e l'adattabilità delle reti neurali, spostando la funzione di attivazione della rete nella direzione desiderata, qualora i pesi non dovessero riuscirci.
+
+Il valore ottenuto viene poi passato a una funzione chiamata ***Funzione di Attivazione***, che ci permette di ottenere un valorecompreso tra due valori impostati. Esistono molte funzioni di attivazione, quella piu adatta per il caso di flappy Bird è la funzione Tangente iperbolica Tanh(x), che ci permette di ottenere un valore compreso tra -1 e 1, in particolare se il numero in uscita dalla somma ponderata è un numero positivo grande il valore tenderà ad 1, se è un numero negativo grande, tenderà ad -1 altrimenti sarà un numero compreso -1 e 1.
+
+***INSERIRE IMMAGINE FUNC TANG e FUNCS***
+
+Grazie a questo valore il nodo di output sarà in grado di eseguire una determinata azione, per il caso di Flappy Bird se il valore sarà maggiore di 0.5 l'uccellino salterà.
+
+***Come vengono scelti Weights e Bias?***
+
+Il Weight e il bias per il caso di Flappy Bird vengono impostati in modo automatico dalla macchina, per fare ciò è stato utilizzato l'algoritmo ***NEAT***(NeuroEvolution of Augmenting Topologies) è un algoritmo di intelligenza artificiale che si basa sulla selezione naturale. (AGGIUNGERE QUALCHE RIGA SU NEAT)
+
+Per il primo step non sappiamo quale può essere il valore giusto per i Weights e per il Bias e perciò è necessario eseguire dei test in modo completamente casuale, creando una popolazione di uccellini ampia.
+
+Ogni popolazione è composta da 100 uccellini, dove ogni uccellino ha una propria rete neurale che lo controlla, ogni rete neurale verrà testata ed allenata e successivamente verrà valutato il loro Fitness.
+
+Il fitness si riferisce alla capacità di un algoritmo o di un modello di adattarsi e migliorare le proprie prestazioni attraverso l'allenamento e l'ottimizzazione, viene spesso utilizzata come metrica di valutazione per algoritmi di apprendimento automatico, come le reti neurali, per selezionare i modelli più performanti e migliorare le loro capacità predittive.
+
+In Flappy Bird, il fitness viene valutato in base a quanto l'uccellino avanza nel gioco, in particolare ogni fotogramma che avanza nel gioco ottiene un punto.
+
+alla fine della simulazione si prendono gli uccellini con il punteggio di fitness più elevato e si crea una nuova popolazione partendo da questi attraverso una mutazione. La nuova popolazione sarà migliore della precedente e continuiamao con questo processo fino a quando non saremo soddisfatti.
+
+
 <br> <br>
 
 
 ## FLAPPY BIRD IA CODE
 ***Spiegazione del codice per intero (solo le parti essenziali) (DA CANCELLARE)***
+
+
 
 
 
