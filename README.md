@@ -94,7 +94,7 @@ In flappy bird le informazioni che conosciamo a priori sono la posizone dell'ucc
 Sul nodo di output la rete neurale dirà all'uccellino se saltare o no.
 
 <p align="center">
- <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/neural.png" alt= “”>
+ <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/neural.png" alt= “” width="50%" height="50%">
 </p>
 
 ***INSERIRE IMMAGINE UCCELLINO CON PARAMETRI***
@@ -104,7 +104,7 @@ Il valore del wheight è diverso per ogni connessione è il suo scopo è quello 
 
 
 <p align="center">
- <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/weight.png" alt= “”>
+ <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/weight.png" alt= “” width="50%" height="0%">
 </p>
 
 
@@ -117,8 +117,8 @@ La prima azione che viene esegita è la somma ponderata $$\sum_{i=1}^n (Input_i 
 Il valore ottenuto viene poi passato a una funzione chiamata ***Funzione di Attivazione***, che ci permette di ottenere un valorecompreso tra due valori impostati. Esistono molte funzioni di attivazione, quella piu adatta per il caso di flappy Bird è la funzione Tangente iperbolica Tanh(x), che ci permette di ottenere un valore compreso tra -1 e 1, in particolare se il numero in uscita dalla somma ponderata è un numero positivo grande il valore tenderà ad 1, se è un numero negativo grande, tenderà ad -1 altrimenti sarà un numero compreso -1 e 1.
 
 <p align="center">
- <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/functions.png" alt= “”>
- <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/tanh.png" alt= “”>
+ <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/functions.png" alt= “” width="50%" height="50%">
+ <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/tanh.png" alt= “” width="50%" height="50%">
 </p>
 
 Grazie a questo valore il nodo di output sarà in grado di eseguire una determinata azione, per il caso di Flappy Bird se il valore sarà maggiore di 0.5 l'uccellino salterà.
