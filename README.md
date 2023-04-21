@@ -43,6 +43,19 @@ L'alogritmo è stato originariamente sviluppato Kenneth Stanley e Risto Miikkula
 
 A partire da reti estremamente semplici, in quanto completamente prive di neuroni intermedi, NEAT ha generalmente performance più elevate nella ricerca di soluzioni  efficaci e robuste rispetto ad algoritmi di *reinforcement leaening* o a tecniche neuro-evolutive analoghe che però partono da topologie predeterminate o comunque casuali. Ciò è possibile grazie all'uso di strutture iniziali minime che sono facili da ottimizzare e rendono l'algoritmo estremamente veloce nella ricerca di soluzioni.
 
+<br>
+
+L'algoritmo presenta i seguenti step:
+https://en.wikipedia.org/wiki/Genetic_algorithm 
+
+1. Inizializzazione
+2. Selezione
+3. Operatori Genetici
+4. Euristica
+5. Terminazione
+
+<br>
+
 L'algorimo si basa su tre princìpi fondamentali:
 
 1. **OMOLOGIA**: NEAT codifica ciascun nodo e ciascuna connessione della rete attraverso un gene. Ogni volta che una mutazione strutturale sfocia nella creazione di un nuovo gene, quel gene riceve un contrassegno numerico che lo rende permanentemente rintracciabile. Tale marcatura storica è utilizzata in seguito per verificare la conciliabilità di geni omologhi durante l'operazione di crossover, e per definire un operatore di compatibilità;
@@ -71,11 +84,10 @@ L'utilizzo dell'algoritmo porta i seguenti vantaggi rispetto ad analoghi GA:
 - **Fenotipo**: Singola rappresentazione della topologia di una singola rete di *Geni Nodo* e *Geni di Connessione*
 <p align="center"> <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/Fenotipo.PNG" alt= “” width="40%" height="40%"> </p>
 
-- **Specie**:
 - **crossover**: incrocio di *Genotipi*
-- **Accoppiamento**:
 - **Mutazione strutturale**: evento che può cambiare sia il *Peso della connessione* che la *Topologia della Rete*, avviene in 2 modalità, *aggiungendo una connessione* tra due nodi non connessi precedentemente oppure *aggiungendo un nodo* in una connessione preesistente dividendola in due.
 <p align="center"> <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/Mutazione.PNG" alt= “” width="40%" height="40%"> </p>
+-**Funzione di fitness**: è la funzione che a seconda di parametri di input forniti, produce un output che valuta la "bontà" degli elementi rispetto al problema in questione
 
 
 
