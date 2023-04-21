@@ -144,7 +144,8 @@ alla fine della simulazione si prendono gli uccellini con il punteggio di fitnes
 ## FLAPPY BIRD IA CODE
 ***Spiegazione del codice per intero (solo le parti essenziali) (DA CANCELLARE)***
 
-#Creazione della grafica 
+###Creazione della grafica 
+
  ***Creazione dell'uccellino***
  
  ```ruby
@@ -159,22 +160,62 @@ class Pipe:
 
         self.top = 0
         self.bottom = 0
-        self.PIPE_TOP = pygame.transform.flip(PIPE_IMG, False, True) #Crea il tubo al contrario
+        self.PIPE_TOP = pygame.transform.flip(PIPE_IMG, False, True)                 #Crea il tubo al contrario
         self.PIPE_BOTTOM = PIPE_IMG
 
         self.passed=False
         self.set_height()
 
-    def set_height(self):   #Gestisce l'altezza dei tubi
+    def set_height(self):                                                            #Gestisce l'altezza dei tubi
         self.height = random.randrange(50, 450)
         self.top = self.height - self.PIPE_TOP.get_height()
         self.bottom = self.height + self.GAP
 ```
 
 
+###Implementazione di NEAT
+
+Il primo step è impostare i parametri nel file di configurazione di neat.
+Di seguito i parametri più importanti:
+ ```ruby
+fitness_criterion     = max                 #Decidiamo quali uccellini tenere in base al  valore del fitness -> Max = Valore più alto
+fitness_threshold     = 100                 #Soglia che deve raggiungere il fitness prima che finisca il programma   
+pop_size              = 50                  #La dimensione dell popolazione per ogni generazione
+activation_default    = tanh              #Funzione di attivazione, nel nostro caso la tangente iperbolica(Tanh(x))
+bias_max_value          = 30.0              #Valore massimo che il  bias può assumere alla prima generazione(assegnato casualmente)
+bias_min_value          = -30.0             #Valore minimo che il  bias può assumere alla prima generazione(assegnato casualmente)
+```
+
+Successivamente il file di configurazione viene caricato nel programma, viene creata la popolzione utilizzando i parametri del file di configurazione.
+Una volta creata, viene lanciata la funzione di fitness chiamata **main**, per una massimo di 50 volte, che sarà il numero massimo di generazioni prima che il programma venga terminato.
+ ```ruby
+ def run(config_path):
+
+    #Viene passato il path del file di configurazione e venogno settate le diverse proprietà
+    config = neat.config.Config(neat.DefaultGenome, neat.DefaultReproduction, neat.DefaultSpeciesSet, neat.DefaultStagnation, config_path)
+
+    #Creazione della popolazione
+    p = neat.Population(config) 
+
+    #Opzionale: serve per visualizzare nella console le statistche
+    p.add_reporter(neat.StdOutReporter(True))
+    stats = neat.StatisticsReporter()
+    p.add_reporter(stats)
+
+    #configurazione della fitness function, 50 è il numero di volte che chiamerà la funzione main (numero massimo di generazioni)
+    w = p.run(main,50)
+    
 
 
+if __name__ == "__main__":
 
+    #Caricamento del file di configurazione
+    
+    local_dir = os.path.dirname(__file__)
+    config_path = os.path.join(local_dir, "config.txt")
+    run(config_path)
+ ```
+ 
 <br> <br>
 
 
