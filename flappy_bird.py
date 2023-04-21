@@ -282,13 +282,14 @@ def run(config_path):
     p.add_reporter(stats)
 
     #configurazione della fitness function, 50 è il numero di volte che chiamerà la funzione main(numero massimo di generazioni)
-    winner = p.run(main,50)
+    w = p.run(main,50)
     
 
 
 if __name__ == "__main__":
 
     #Caricamento del file di configurazione
+
     local_dir = os.path.dirname(__file__)
     config_path = os.path.join(local_dir, "config.txt")
     run(config_path)
