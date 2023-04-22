@@ -69,6 +69,10 @@ L'utilizzo dell'algoritmo porta i seguenti vantaggi rispetto ad analoghi GA:
 1. **Velocità**: Strutture più piccole si ottimizzano più velocemente. Inoltre, anche se nel tempo aumenta la complessità, la maggior parte delle strutture preesistenti sono già ottimizzate.
 2. **Fuga da un'optima locale**: Non solo NEAT attraverso l'*accoppiamento* e la *mutazione* può cercare la forma del suo ambiente, ma può anche alterare l'ambiente stesso con nuove strutture. Così, quando una specie in NEAT si trova su un optimum locale, è possibile che aggiungendo una nuova connessione, si possa aprire una nuova dimensione di libertà, che porta a un percorso di allontanamento dall'optimum locale.
 
+<br>
+
+**Limiti di NEAT:**
+
 <br> <br>
 
 **DIZIONARIO NEAT:**
