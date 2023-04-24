@@ -46,7 +46,6 @@ A partire da reti estremamente semplici, in quanto completamente prive di neuron
 <br>
 
 L'algoritmo presenta i seguenti step:
-https://en.wikipedia.org/wiki/Genetic_algorithm 
 
 1. Inizializzazione
 2. Selezione
