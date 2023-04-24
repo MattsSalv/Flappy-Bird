@@ -102,7 +102,7 @@ L'utilizzo dell'algoritmo porta i seguenti vantaggi rispetto ad analoghi GA:
 ## COME VIENE USATO NEAT IN FLAPPY BIRD
 **Cosa è Flappy Bird?** 
 
-Flappy Bird è un gioco arcade sviluppato da Dong Nguyen nel 2013. Il gioco è molto semplice ma altrettanto difficile: i giocatori devono controllare un uccellino attraverso una serie di tubi, premendo sullo schermo per farlo sbattere le ali e volare. Lo scopo del gioco è di ottenere il punteggio più alto possibile, evitando di toccare qualsiasi ostacolo sulla strada.
+Flappy Bird è un gioco arcade *Single Agent* sviluppato da Dong Nguyen nel 2013. Il gioco è molto semplice ma altrettanto difficile: i giocatori devono controllare un uccellino attraverso una serie di tubi, premendo sullo schermo per farlo sbattere le ali e volare. Lo scopo del gioco è di ottenere il punteggio più alto possibile, evitando di toccare qualsiasi ostacolo sulla strada.
 
 L'intelligenza artificale applicata a  flappy bird, esegue una serie di generazioni, dove l'ia migliora esponenzialmente fino ad arrivare ad un punto in cui non può essere battuto e il gioco continui all'infinito.
 
