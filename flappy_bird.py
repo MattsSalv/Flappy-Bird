@@ -140,12 +140,12 @@ class Base:
     WIDTH = BASE_IMG.get_width()
     IMG = BASE_IMG
 
-    def __init__(self,y):
+    def __init__(self,y):           #Inizializzazione del terreno
         self.y = y
         self.x1 = 0
         self.x2 = self.WIDTH
 
-    def move(self):
+    def move(self):                 #Descrizione del movimento del terreno (coerente con il movimento dei tubi)
         self.x1 -= self.VEL
         self.x2 -= self.VEL
 
@@ -155,7 +155,7 @@ class Base:
         if self.x2 + self.WIDTH < 0:
             self.x2 = self.x1 + self.WIDTH  
 
-    def draw(self, win): 
+    def draw(self, win):           #Associazione dell'immagine all'elemento terreno
         win.blit(self.IMG, (self.x1, self.y))   
         win.blit(self.IMG, (self.x2, self.y))           
 
