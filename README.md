@@ -102,15 +102,25 @@ L'utilizzo dell'algoritmo porta i seguenti vantaggi rispetto ad analoghi GA:
 <br> <br>
 
 ## COME VIENE USATO NEAT IN FLAPPY BIRD
-**Cosa è Flappy Bird?** 
+
+**Le reti neurali** 
 
 Per realizzare un'IA in grado di giocare a Flappy Bird, sono stati utilizzati modelli di apprendimento automatico noti come "reti neurali". Questi strumenti si ispirano alla struttura e al funzionamento del cervello umano, e sono composti da diversi livelli, ognuno dei quali ha uno scopo specifico.
 
-Nel caso di Flappy Bird, la rete neurale ha due livelli principali: il primo è chiamato "Input Layer", ed è costituito dalle informazioni che l'IA ha a disposizione, ovvero la posizione dell'uccellino e la posizione dei tubi. Grazie a queste informazioni, l'IA può calcolare la distanza che separa l'uccellino dai tubi, e decidere come agire di conseguenza.
+Nel caso di Flappy Bird, la rete neurale ha due livelli principali: il primo è chiamato "Input Layer", ed è costituito dalle informazioni che l'IA ha a disposizione.
 
-Il secondo livello, invece, è il "Output Layer", che ha il compito di guidare l'uccellino attraverso i tubi. In questo caso, la rete neurale decide se far saltare l'uccellino o no, in base alle informazioni raccolte nel primo livello.
+Il secondo livello, invece, è il "Output Layer", che ha il compito di decidere quale azione intraprendere in base alle informazioni raccolte nel primo livello.
+
+Tra il livello di input e il livello di output c'è uno strato di mezzo chiamato hidden layer (livello nascosto), composto da strati intermedi di neuroni nell'architettura di una rete neurale artificiale. Questi strati elaborano l'input ricevuto e producono dei parametri che saranno utilizzati dallo strato successivo per produrre l'output finale.
+
+<p align="center">
+ <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/hiddenlayer.png" alt= “” width="50%" height="0%">
+</p>
+
 
 Ma la vera sfida di Flappy Bird sta nella capacità dell'IA di migliorarsi continuamente, grazie a una serie di "generazioni" in cui viene testata e valutata la sua capacità di sconfiggere il gioco. In questo modo, l'IA impara ad adattarsi a situazioni sempre più difficili, fino a raggiungere un livello di abilità tale da non poter essere più battuta.
+
+Le informazioni che la rete neurale ha a disposzione nell'input layer sono la posizione dell'uccelino e la distanza tra quest'ultimo e i tubi, mentre l'output layer avrà il compito di decidere se far saltare o meno l'uccelino.
 
 <p align="center">
  <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/neural.png" alt= “” width="50%" height="50%">
