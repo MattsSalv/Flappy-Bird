@@ -171,7 +171,7 @@ Di seguito vengono riportate le classi principali utilizzate per implementare la
 
  ***Creazione dell'uccellino***
   ```ruby
-  IMGS = BIRD_IMGS
+  class Bird:  
     MAX_ROTATION = 25            #Valore massimo di rotazione (per non farlo mai andare a testa in giù)
     ROT_VEL = 20                 #Velocità di rotazione dell'immagine dell'uccellino (quando sale/scende)
     ANIMATION_TIME = 5           #Ogni quanto cambia il frame e l'uccellino muove le ali
