@@ -16,14 +16,7 @@ L'obiettivo del progetto è di impiegare l'algoritmo genetico ***NEAT*** per app
 <br>
 
 
-<br> 
- 
-
-
->**NB** è necessario installare le seguenti librerie per avviare il programma: 
-> - NEAT-Python <https://neat-python.readthedocs.io/en/latest/installation.html> 
-> - PyGame <http://www.pygame.org/downloads.shtml>
-> - ...
+<br>
 
 
 
@@ -32,9 +25,13 @@ L'obiettivo del progetto è di impiegare l'algoritmo genetico ***NEAT*** per app
 
 
 ## Avviare il programma
-***comandi base  per avviare il programma (DA CANCELLARE)***
 
+>**NB** Per avviare il programma è necessario installare le seguenti librerie: 
+> - NEAT-Python <https://neat-python.readthedocs.io/en/latest/installation.html> 
+> - PyGame <http://www.pygame.org/downloads.shtml>
+> - ...
 
+Per modificare i parametri dell'algoritmo è necessario, impostarli nel file di configurazione, denominato config.txt
 
 <br> <br>
 
