@@ -162,36 +162,91 @@ alla fine della simulazione si prendono gli uccellini con il punteggio di fitnes
 ## FLAPPY BIRD IA CODE
 ***Spiegazione del codice per intero (solo le parti essenziali) (DA CANCELLARE)***
 
-###Creazione della grafica 
+<br>
+
+### Creazione della grafica 
+Di seguito vengono riportate le classi principali utilizzate per implementare la grafica di Flappy Bird, tra cui la classe *Bird* per la creazione degli uccellini, la classe *Pipe* per l'implementazione casuale dei tubi in basso e in alto e la classe *Base* per la costruzione della base inferiore del gioco
+
+<br>
 
  ***Creazione dell'uccellino***
+  ```ruby
+  IMGS = BIRD_IMGS
+    MAX_ROTATION = 25
+    ROT_VEL = 20
+    ANIMATION_TIME = 5 #Ogni quanto cambia il frame e l'uccellino muove le ali
+
+    def __init__(self, x, y):    #Iniizializzazione dell'uccellino
+    
+    def jump(self):              #SPIEGA
+    
+    def move(self):              #SPIEGA
+    
+    def draw(self, win):         #SPIEGA
+    
+     def get_mask(self):         #SPIEGA
+ ```
  
- ```ruby
+ <br>
+ 
+  ***Creazione dei tubi***
+  ```ruby
 class Pipe:
     GAP = 200
     VEL = 5 
 
-    def __init__(self, x):
-        self.x = x
-        self.height = 0
-        #self.gap = 100
-
-        self.top = 0
-        self.bottom = 0
-        self.PIPE_TOP = pygame.transform.flip(PIPE_IMG, False, True)                 #Crea il tubo al contrario
-        self.PIPE_BOTTOM = PIPE_IMG
-
-        self.passed=False
-        self.set_height()
-
-    def set_height(self):                                                            #Gestisce l'altezza dei tubi
-        self.height = random.randrange(50, 450)
-        self.top = self.height - self.PIPE_TOP.get_height()
-        self.bottom = self.height + self.GAP
+    def __init__(self, x):    #SPIEGA
+       
+    def set_height(self):     #SPIEGA
+    
+    def move(self):           #SPIEGA
+   
+    def draw(self, win):      #SPIEGA
+       
+    def collide(self, bird):  #SPIEGA
 ```
 
+ <br>
+ 
+***Creazione della base***
+  ```ruby
+class Base:
+    VEL = 4
+    WIDTH = BASE_IMG.get_width()
+    IMG = BASE_IMG
 
-###Implementazione di NEAT###
+    def __init__(self,y):   #SPIEGA
+
+    def move(self):         #SPIEGA
+    
+    def draw(self, win):    #SPIEGA
+```
+
+<br>
+
+***Creazione della finestra complessiva di gioco***
+  ```ruby
+def draw_window(win, birds, pipes, base, score):
+
+    win.blit(BG_IMG, (0,0))
+
+    for pipe in pipes:
+        pipe.draw(win)
+
+    text = STAT_FONT.render("Score " + str(score), 1, (255, 255, 255))   
+    win.blit(text, (WIN_WIDTH - 10 - text.get_width(), 10)) 
+
+    base.draw(win)    
+
+    for bird in birds:
+        bird.draw(win)
+
+    pygame.display.update()
+```
+
+<br> <br>
+
+### Implementazione di NEAT
 
 Il primo step è impostare i parametri nel file di configurazione di neat.
 Di seguito i parametri più importanti:
