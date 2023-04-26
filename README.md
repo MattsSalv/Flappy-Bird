@@ -315,6 +315,57 @@ while run:
                       bird.jump()
 ```
 
+<br> </br>
+<br> </br>
+<br> </br>
+
+Le righe successive si occupano di gestire la logica del gioco, in particolare le prime righe gestiscono la movimentazione dei tubi nella schermata di gioco e la collissione degli agenti intelligenti con quest'ultimi.
+Ogni volta che l'agente intelligente oltrepassa un tubo il suo punteggio di fitness viene incrementato di 3, successivamente il tubo passato viene rimosso dalla schermata e viene aggiunto un altro tubo.
+Le ultime righe controllano le collissioni con il suolo e il limite superiore della schermata di gioco
+
+```ruby
+            
+            add_pipe = False
+            rem = []
+
+            for pipe in pipes:
+ 
+                pipe.move()                                                      #Muove i tubi
+
+                for x,bird in enumerate(birds):                                  #Gestisce le collisioni di ogni uccellino con i tubi, si occupa di rimuovere gli
+                                                                                 #uccellini che collidono
+                    if pipe.collide(bird):
+                        ge[x].fitness -= 1                                       #il fitness dell'uccellino che ha colpito il tubo viene decrementato a 1 per non                                                                                        #influenzare gli altri e di conseguenza i successivi
+                        birds.pop(x)
+                        nets.pop(x)
+                        ge.pop(x)
+
+                    if not pipe.passed and pipe.x < bird.x:                      #Controlla che se il singolo uccellino ha passato il tubo
+                        pipe.passed = True    
+                        add_pipe = True                                          
+            
+                if pipe.x + pipe.PIPE_TOP.get_width() < 0:                       #Si occupa di rimuovere il tubo una volta che è uscito dalla visuale di gioco
+                    rem.append(pipe)    
+
+            if add_pipe:                                                         #Se supera i tubi, il punteggio viene incrementato e il valore di fitness                                                                                              #dell'uccellino viene incrementato di 5 
+                score +=1
+                for g in ge:
+                    g.fitness += 3
+                pipes.append(Pipe(600))                                          #Aggiunge un nuovo pipe dopo che lo si è superato
+
+            for r in rem:
+                pipes.remove(r)
+
+            for x, bird in enumerate(birds):                                                                                                                        
+                if bird.y + bird.img.get_height() - 10 >= 730 or bird.y < -50:   #Controlla le collissioni del singolo uccellino con il suolo e che non vada oltre la 
+                    birds.pop(x)                                                 #parte superiore dello schermo
+                    nets.pop(x)
+                    ge.pop(x)    
+                
+            base.move()                                                           #Muove il terreno del gioco
+            draw_window(win, birds, pipes, base, score)                           #Crea i vari oggetti sullo schermo 
+```
+
 
 
 ## Avvia il codice in Gitpod
