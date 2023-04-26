@@ -2,7 +2,7 @@
 <p align="center" ><b><i>di Mattia Salvatti e Claudio Onorati </b></i></p>
 
 <br> <br>
-***Introduzione***
+## INTRODUZIONE
 Flappy Bird è uno dei giochi arcade più famosi degli ultimi anni, sviluppato da Dong Nguyen nel 2013. Questo gioco, oltre ad essere incredibilmente popolare, è noto anche per la sua grande difficoltà: i giocatori devono controllare un piccolo uccellino mentre vola attraverso una serie di tubi, schivando tutti gli ostacoli lungo il tragitto. Per farlo, devono premere continuamente sullo schermo, facendo sbattere le ali dell'uccellino per mantenerlo in volo.
 
 La grande sfida di Flappy Bird sta nel cercare di ottenere il punteggio più alto possibile, evitando di toccare qualsiasi ostacolo lungo la strada. Ma, come spesso accade nei giochi più difficili, la soluzione a questo problema è stata trovata grazie all'uso dell'intelligenza artificiale.
@@ -11,9 +11,7 @@ La grande sfida di Flappy Bird sta nel cercare di ottenere il punteggio più alt
  <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/Cover.png" alt= “” width="40%" height="40%">
 </p>
 
-Il progetto ha l'obbiettivo di utilizzare l'algoritmo genetico ***NEAT*** per imparare a giocare a ***Flappy Bird***.
-
-Il gioco è stato ricreato in Python ed è stata utilizzata la libreria ***NEAT-Python*** per implementare l'algoritmo genetico.
+L'obiettivo del progetto è di impiegare l'algoritmo genetico ***NEAT*** per apprendere a giocare a ***Flappy Bird*** mediante la riproduzione del gioco in Python utilizzando la libreria ***NEAT-Python*** per la realizzazione dell'algoritmo genetico.
 
 <br>
 
