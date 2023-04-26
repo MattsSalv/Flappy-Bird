@@ -115,6 +115,7 @@ Sul nodo di output la rete neurale dirà all'uccellino se saltare o no.
 
 <p align="center">
  <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/neural.png" alt= “” width="50%" height="50%">
+ <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/gameplay_con_parametri.png" alt= “” width="50%" height="50%">
 </p>
 
 ***INSERIRE IMMAGINE UCCELLINO CON PARAMETRI***
