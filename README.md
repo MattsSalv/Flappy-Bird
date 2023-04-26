@@ -193,7 +193,7 @@ Di seguito vengono riportate le classi principali utilizzate per implementare la
   ```ruby
 class Pipe:
     GAP = 200                   #Distanza costante tra un tubo ed il successivo
-    VEL = 5                     #Velocità di movimento del tubo
+    VEL = 5                     #Velocità costante di movimento del tubo
 
     def __init__(self, x):      #Inizializzazione del tubo
        
