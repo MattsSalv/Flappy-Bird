@@ -226,22 +226,7 @@ class Base:
 
 ***Creazione della finestra complessiva di gioco***
   ```ruby
-def draw_window(win, birds, pipes, base, score):
-
-    win.blit(BG_IMG, (0,0))
-
-    for pipe in pipes:
-        pipe.draw(win)
-
-    text = STAT_FONT.render("Score " + str(score), 1, (255, 255, 255))   
-    win.blit(text, (WIN_WIDTH - 10 - text.get_width(), 10)) 
-
-    base.draw(win)    
-
-    for bird in birds:
-        bird.draw(win)
-
-    pygame.display.update()
+def draw_window(win, birds, pipes, base, score):  #Creazione degli elementi quali uccelli, tubi, base, punteggio e la finetra di gioco stessa
 ```
 
 <br> <br>
