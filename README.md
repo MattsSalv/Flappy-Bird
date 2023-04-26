@@ -91,7 +91,7 @@ L'utilizzo dell'algoritmo porta i seguenti vantaggi rispetto ad analoghi GA:
 - **Popolazione**: parte o totalità di una *Generazione*
 - **Funzione di fitness**: è la funzione che a seconda di parametri di input forniti, produce un output che valuta la "bontà" degli elementi rispetto al problema in questione
 - **Funzione di attivazione**: funzione che trasfotma la media pesata dei valori di input in valori di output
-- **crossover**: incrocio di *Genotipi*
+- **Crossover**: incrocio di *Genotipi*
 - **Mutazione strutturale**: evento che può cambiare sia il *Peso della connessione* che la *Topologia della Rete*, avviene in 2 modalità, *aggiungendo una connessione* tra due nodi non connessi precedentemente oppure *aggiungendo un nodo* in una connessione preesistente dividendola in due.
 <p align="center"> <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/Mutazione.PNG" alt= “” width="40%" height="40%"> </p>
 
