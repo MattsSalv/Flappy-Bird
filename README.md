@@ -2,6 +2,14 @@
 <p align="center" ><b><i>di Mattia Salvatti e Claudio Onorati </b></i></p>
 
 <br> <br>
+***Introduzione***
+Flappy Bird è uno dei giochi arcade più famosi degli ultimi anni, sviluppato da Dong Nguyen nel 2013. Questo gioco, oltre ad essere incredibilmente popolare, è noto anche per la sua grande difficoltà: i giocatori devono controllare un piccolo uccellino mentre vola attraverso una serie di tubi, schivando tutti gli ostacoli lungo il tragitto. Per farlo, devono premere continuamente sullo schermo, facendo sbattere le ali dell'uccellino per mantenerlo in volo.
+
+La grande sfida di Flappy Bird sta nel cercare di ottenere il punteggio più alto possibile, evitando di toccare qualsiasi ostacolo lungo la strada. Ma, come spesso accade nei giochi più difficili, la soluzione a questo problema è stata trovata grazie all'uso dell'intelligenza artificiale.
+
+<p align="center">
+ <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/Cover.png" alt= “” width="40%" height="40%">
+</p>
 
 Il progetto ha l'obbiettivo di utilizzare l'algoritmo genetico ***NEAT*** per imparare a giocare a ***Flappy Bird***.
 
@@ -9,9 +17,6 @@ Il gioco è stato ricreato in Python ed è stata utilizzata la libreria ***NEAT-
 
 <br>
 
-<p align="center">
- <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/Cover.png" alt= “” width="40%" height="40%">
-</p>
 
 <br> 
  
@@ -104,21 +109,18 @@ L'utilizzo dell'algoritmo porta i seguenti vantaggi rispetto ad analoghi GA:
 ## COME VIENE USATO NEAT IN FLAPPY BIRD
 **Cosa è Flappy Bird?** 
 
-Flappy Bird è un gioco arcade *Single Agent* sviluppato da Dong Nguyen nel 2013. Il gioco è molto semplice ma altrettanto difficile: i giocatori devono controllare un uccellino attraverso una serie di tubi, premendo sullo schermo per farlo sbattere le ali e volare. Lo scopo del gioco è di ottenere il punteggio più alto possibile, evitando di toccare qualsiasi ostacolo sulla strada.
+Per realizzare un'IA in grado di giocare a Flappy Bird, sono stati utilizzati modelli di apprendimento automatico noti come "reti neurali". Questi strumenti si ispirano alla struttura e al funzionamento del cervello umano, e sono composti da diversi livelli, ognuno dei quali ha uno scopo specifico.
 
-L'intelligenza artificale applicata a  flappy bird, esegue una serie di generazioni, dove l'ia migliora esponenzialmente fino ad arrivare ad un punto in cui non può essere battuto e il gioco continui all'infinito.
+Nel caso di Flappy Bird, la rete neurale ha due livelli principali: il primo è chiamato "Input Layer", ed è costituito dalle informazioni che l'IA ha a disposizione, ovvero la posizione dell'uccellino e la posizione dei tubi. Grazie a queste informazioni, l'IA può calcolare la distanza che separa l'uccellino dai tubi, e decidere come agire di conseguenza.
 
-Per realizzare un'intelligenza artificiale in grado di giocare a flappy bird sono state utilizzate le reti neurali, ovvero un tipo di modello di apprendimento automatico che sono ispirati alla struttura e al funzionamento del cervello umano.
-Le reti neurali sono composte da diversi livelli(Layer), nel nostro gioco avremo un primo livello chiamato ***Input Layer***, ovvero le informazioni che la nostra rete neurale conosce e un livello finale chiamato ***Output Layer*** che si occupa di dice all'AI cosa fare.
-In flappy bird le informazioni che conosciamo a priori sono la posizone dell'uccellino e la posizione dei tubi, grazie a queste informazioni è possibile calcolare la distanza che separa l'uccellino dai tubi, quest'ultime assieme alla posizione dell'uccellino saranno le informazioni in input alla nostra rete neurale.
-Sul nodo di output la rete neurale dirà all'uccellino se saltare o no.
+Il secondo livello, invece, è il "Output Layer", che ha il compito di guidare l'uccellino attraverso i tubi. In questo caso, la rete neurale decide se far saltare l'uccellino o no, in base alle informazioni raccolte nel primo livello.
+
+Ma la vera sfida di Flappy Bird sta nella capacità dell'IA di migliorarsi continuamente, grazie a una serie di "generazioni" in cui viene testata e valutata la sua capacità di sconfiggere il gioco. In questo modo, l'IA impara ad adattarsi a situazioni sempre più difficili, fino a raggiungere un livello di abilità tale da non poter essere più battuta.
 
 <p align="center">
  <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/neural.png" alt= “” width="50%" height="50%">
  <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/gameplay_con_parametri.png" alt= “” width="50%" height="50%">
 </p>
-
-***INSERIRE IMMAGINE UCCELLINO CON PARAMETRI***
 
 I nodi dell'input layer sono collegati al nodo dell'output layer tramite una connessione, ognuna di queste connessioni ha un peso chiamato, ***Weight***. 
 Il valore del wheight è diverso per ogni connessione è il suo scopo è quello di migliorare, o in alcuni casi, peggiorare la rete neurale.
@@ -202,7 +204,7 @@ Di seguito i parametri più importanti:
 fitness_criterion     = max                 #Decidiamo quali uccellini tenere in base al  valore del fitness -> Max = Valore più alto
 fitness_threshold     = 100                 #Soglia che deve raggiungere il fitness prima che finisca il programma   
 pop_size              = 50                  #La dimensione dell popolazione per ogni generazione
-activation_default    = tanh              #Funzione di attivazione, nel nostro caso la tangente iperbolica(Tanh(x))
+activation_default    = tanh                #Funzione di attivazione, nel nostro caso la tangente iperbolica(Tanh(x))
 bias_max_value          = 30.0              #Valore massimo che il  bias può assumere alla prima generazione(assegnato casualmente)
 bias_min_value          = -30.0             #Valore minimo che il  bias può assumere alla prima generazione(assegnato casualmente)
 ```
