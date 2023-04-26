@@ -291,28 +291,44 @@ Succesivamene viene creata la finestra di gioco contenente le varie componenti d
 ```ruby
 def main(genomes, config):  
 
-    nets = []
-    ge = []
-    birds = []
+    nets = []                                                                  #SPIEGA
+    ge = []                                                                    #SPIEGA
+    birds = []                                                                 #SPIEGA
 
     #Creazione della rete neurale per ogni genomaD
     for _, g in genomes:  
         g.fitness = 0                                                          #Valore del fitness di ogni genoma settato a 0
         net = neat.nn.FeedForwardNetwork.create(g, config)                     #Creazione della rete neurale, passandogli il genoma e il file di configurazione
-        nets.append(net)
         birds.append(Bird(230, 350))                                           #Creazione dell'uccellino relativo al genoma
-        ge.append(g)
 
+    base = Base(730)                                                           #SPIEGA
+    pipes = [Pipe(700)]                                                        #SPIEGA
 
-
-    base = Base(730)
-    pipes = [Pipe(700)]
-    win = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT))                      #Creazione della fineastra di gioco
-    clock = pygame.time.Clock()
-
-    score = 0
-
-    run = True
+    score = 0                                                                  #SPIEGA
+    
+     run = True                                                                #Avvio il gioco
+    
+    while run:
+            clock.tick(30)                                                     #Gestisce il framerate(rallenta il gioco)
+            for event in pygame.event.get():                                   #Si occupa di gestire la chiusura della finestra di gioco
+            
+            pipe_ind = 0                                                       #SPIEGA
+            if len(birds) > 0:
+                if len(pipes) > 1 and birds[0].x > pipes[0].x + pipes[0].PIPE_TOP.get_width():
+                    pipe_ind = 1
+                    
+            else:                                                              #Se non ho piu uccelli lascio il gioco
+               run = False
+               break  
+               
+            for x, bird in enumerate(birds):                                   #Per ogni frame che l'uccellino avanza viene aumentato il fitness di 0.1
+                bird.move()   
+                ge[x].fitness += 0.1
+                
+                 output = nets[x].activate((bird.y, abs(bird.y - pipes[pipe_ind].height), abs(bird.y - pipes[pipe_ind].bottom))) #Attiviamo la rete neurale passandogli i valori(Ritorna un array)
+                if output[0] > 0.5:                                            #Posso mettere 0 perchè ho solo un neurone di uscita
+                    bird.jump()
+           
 ```
 
 <br> <br>
