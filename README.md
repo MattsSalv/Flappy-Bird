@@ -43,6 +43,18 @@ L'alogritmo è stato originariamente sviluppato Kenneth Stanley e Risto Miikkula
 
 A partire da reti estremamente semplici, in quanto completamente prive di neuroni intermedi, NEAT ha generalmente performance più elevate nella ricerca di soluzioni  efficaci e robuste rispetto ad algoritmi di *reinforcement leaening* o a tecniche neuro-evolutive analoghe che però partono da topologie predeterminate o comunque casuali. Ciò è possibile grazie all'uso di strutture iniziali minime che sono facili da ottimizzare e rendono l'algoritmo estremamente veloce nella ricerca di soluzioni.
 
+<br>
+
+L'algoritmo presenta i seguenti step:
+
+1. Inizializzazione
+2. Selezione
+3. Operatori Genetici
+4. Euristica
+5. Terminazione
+
+<br>
+
 L'algorimo si basa su tre princìpi fondamentali:
 
 1. **OMOLOGIA**: NEAT codifica ciascun nodo e ciascuna connessione della rete attraverso un gene. Ogni volta che una mutazione strutturale sfocia nella creazione di un nuovo gene, quel gene riceve un contrassegno numerico che lo rende permanentemente rintracciabile. Tale marcatura storica è utilizzata in seguito per verificare la conciliabilità di geni omologhi durante l'operazione di crossover, e per definire un operatore di compatibilità;
@@ -55,6 +67,10 @@ L'utilizzo dell'algoritmo porta i seguenti vantaggi rispetto ad analoghi GA:
 
 1. **Velocità**: Strutture più piccole si ottimizzano più velocemente. Inoltre, anche se nel tempo aumenta la complessità, la maggior parte delle strutture preesistenti sono già ottimizzate.
 2. **Fuga da un'optima locale**: Non solo NEAT attraverso l'*accoppiamento* e la *mutazione* può cercare la forma del suo ambiente, ma può anche alterare l'ambiente stesso con nuove strutture. Così, quando una specie in NEAT si trova su un optimum locale, è possibile che aggiungendo una nuova connessione, si possa aprire una nuova dimensione di libertà, che porta a un percorso di allontanamento dall'optimum locale.
+
+<br>
+
+**Limiti di NEAT:**
 
 <br> <br>
 
@@ -71,9 +87,11 @@ L'utilizzo dell'algoritmo porta i seguenti vantaggi rispetto ad analoghi GA:
 - **Fenotipo**: Singola rappresentazione della topologia di una singola rete di *Geni Nodo* e *Geni di Connessione*
 <p align="center"> <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/Fenotipo.PNG" alt= “” width="40%" height="40%"> </p>
 
-- **Specie**:
+- **Generazione**: singolo insieme di un *Genotipo* e di un *Fenotipo* che rappresenta la singola iterazione
+- **Popolazione**: parte o totalità di una *Generazione*
+- **Funzione di fitness**: è la funzione che a seconda di parametri di input forniti, produce un output che valuta la "bontà" degli elementi rispetto al problema in questione
+- **Funzione di attivazione**:
 - **crossover**: incrocio di *Genotipi*
-- **Accoppiamento**:
 - **Mutazione strutturale**: evento che può cambiare sia il *Peso della connessione* che la *Topologia della Rete*, avviene in 2 modalità, *aggiungendo una connessione* tra due nodi non connessi precedentemente oppure *aggiungendo un nodo* in una connessione preesistente dividendola in due.
 <p align="center"> <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/Mutazione.PNG" alt= “” width="40%" height="40%"> </p>
 
@@ -84,7 +102,7 @@ L'utilizzo dell'algoritmo porta i seguenti vantaggi rispetto ad analoghi GA:
 ## COME VIENE USATO NEAT IN FLAPPY BIRD
 **Cosa è Flappy Bird?** 
 
-Flappy Bird è un gioco arcade sviluppato da Dong Nguyen nel 2013. Il gioco è molto semplice ma altrettanto difficile: i giocatori devono controllare un uccellino attraverso una serie di tubi, premendo sullo schermo per farlo sbattere le ali e volare. Lo scopo del gioco è di ottenere il punteggio più alto possibile, evitando di toccare qualsiasi ostacolo sulla strada.
+Flappy Bird è un gioco arcade *Single Agent* sviluppato da Dong Nguyen nel 2013. Il gioco è molto semplice ma altrettanto difficile: i giocatori devono controllare un uccellino attraverso una serie di tubi, premendo sullo schermo per farlo sbattere le ali e volare. Lo scopo del gioco è di ottenere il punteggio più alto possibile, evitando di toccare qualsiasi ostacolo sulla strada.
 
 L'intelligenza artificale applicata a  flappy bird, esegue una serie di generazioni, dove l'ia migliora esponenzialmente fino ad arrivare ad un punto in cui non può essere battuto e il gioco continui all'infinito.
 
@@ -173,7 +191,7 @@ class Pipe:
 ```
 
 
-###Implementazione di NEAT
+###Implementazione di NEAT###
 
 Il primo step è impostare i parametri nel file di configurazione di neat.
 Di seguito i parametri più importanti:
@@ -186,8 +204,15 @@ bias_max_value          = 30.0              #Valore massimo che il  bias può as
 bias_min_value          = -30.0             #Valore minimo che il  bias può assumere alla prima generazione(assegnato casualmente)
 ```
 
+<br> <br>
+
+
 Successivamente il file di configurazione viene caricato nel programma, viene creata la popolzione utilizzando i parametri del file di configurazione.
 Una volta creata, viene lanciata la funzione di fitness chiamata **main**, per una massimo di 50 volte, che sarà il numero massimo di generazioni prima che il programma venga terminato.
+
+
+<br> <br>
+
  ```ruby
  def run(config_path):
 
@@ -215,8 +240,78 @@ if __name__ == "__main__":
     config_path = os.path.join(local_dir, "config.txt")
     run(config_path)
  ```
- 
 <br> <br>
+<br> <br>
+
+***Funzione fitness***
+
+La prima parte della funzione fitness si occupa della creazione della rete neurale di ogni uccellino. Nel codice abbiamo tre array, per le reti neurali, per i genomi e per gli uccellini. Tramite gli indici di ogni array sono in grado di sapere sempre quale rete neurale e genoma è associato ad ogni uccellino.
+Succesivamene viene creata la finestra di gioco contenente le varie componenti del gioco.
+
+```ruby
+def main(genomes, config):  
+
+    nets = []
+    ge = []
+    birds = []
+
+    #Creazione della rete neurale per ogni genomaD
+    for _, g in genomes:  
+        g.fitness = 0                                                          #Valore del fitness di ogni genoma settato a 0
+        net = neat.nn.FeedForwardNetwork.create(g, config)                     #Creazione della rete neurale, passandogli il genoma e il file di configurazione
+        nets.append(net)
+        birds.append(Bird(230, 350))                                           #Creazione dell'uccellino relativo al genoma
+        ge.append(g)
+
+
+
+    base = Base(730)
+    pipes = [Pipe(700)]
+    win = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT))                      #Creazione della fineastra di gioco
+    clock = pygame.time.Clock()
+
+    score = 0
+
+    run = True
+```
+
+<br> <br>
+<br> <br>
+
+Proseguendo la funzone di fitness, avvia un ciclo while che si interrompe solamente se viene chiusa la finestra di gioco oppure se non ci sono piu uccellini in vita.
+##INSERIRE LA CONDIZIONE DA GUARDARE
+
+All'interno di questo ciclo troviamo un ciclo for che si occupa di incrementare di 0.1 il fitness di ogni genoma, per ogni frame che l'uccellino avanza. Successivamente viene attivata la rete neurale di ogni uccellino passandogli la posizione di quest'ultimo e le distanze tra l'uccellino e il tubo superiore ed inferiore, viene eseguita la funzione di attivazione, tanh, che ritornerà un valore compreso tra -1 e 1, se il valore è maggiore di 0.5, l'uccellino salta.
+
+```ruby
+while run:
+  clock.tick(30)                                                                #Gestisce il framerate, serve per rallentare il gioco
+              for event in pygame.event.get():                                  #Si occupa di gestire la chiusura della finestra di gioco
+                  if event.type == pygame.QUIT:
+                      run = False
+                      pygame.quit()
+                      quit()
+
+              pipe_ind = 0
+              if len(birds) > 0:
+                  if len(pipes) > 1 and birds[0].x > pipes[0].x + pipes[0].PIPE_TOP.get_width(): #RIGUARDARE
+                      pipe_ind = 1
+
+              else:                                                              #Se non ci sono più uccellini, lascio il gioco
+                  run = False
+                  break  
+
+              #Per ogni frame che l'uccellino avanza viene aumentato il fitness di 0.1
+              for x, bird in enumerate(birds):
+                  bird.move()   
+                  ge[x].fitness += 0.1
+                   
+                  #Attivazione della rete neurale
+                  output = nets[x].activate((bird.y, abs(bird.y - pipes[pipe_ind].height), abs(bird.y - pipes[pipe_ind].bottom))) 
+                  
+                  if output[0] > 0.5:  
+                      bird.jump()
+```
 
 
 
