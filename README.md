@@ -172,9 +172,9 @@ Di seguito vengono riportate le classi principali utilizzate per implementare la
  ***Creazione dell'uccellino***
   ```ruby
   IMGS = BIRD_IMGS
-    MAX_ROTATION = 25
-    ROT_VEL = 20
-    ANIMATION_TIME = 5 #Ogni quanto cambia il frame e l'uccellino muove le ali
+    MAX_ROTATION = 25            #Valore massimo di rotazione (per non farlo mai andare a testa in giù)
+    ROT_VEL = 20                 #Velocità di rotazione dell'immagine dell'uccellino (quando sale/scende)
+    ANIMATION_TIME = 5           #Ogni quanto cambia il frame e l'uccellino muove le ali
 
     def __init__(self, x, y):    #Inizializzazione dell'uccellino
     
@@ -192,8 +192,8 @@ Di seguito vengono riportate le classi principali utilizzate per implementare la
   ***Creazione dei tubi***
   ```ruby
 class Pipe:
-    GAP = 200
-    VEL = 5 
+    GAP = 200                   #Distanza costante tra un tubo ed il successivo
+    VEL = 5                     #Velocità di movimento del tubo
 
     def __init__(self, x):      #Inizializzazione del tubo
        
@@ -211,9 +211,7 @@ class Pipe:
 ***Creazione del terreno***
   ```ruby
 class Base:
-    VEL = 4
-    WIDTH = BASE_IMG.get_width()
-    IMG = BASE_IMG
+    VEL = 2.5                 #Velocità di movimento del terreno (Associata per essere coerente con la velocità dei tubi)
 
     def __init__(self,y):     #Inizializzazione del terreno
 
@@ -270,8 +268,7 @@ Una volta creata, viene lanciata la funzione di fitness chiamata **main**, per u
     #configurazione della fitness function, 50 è il numero di volte che chiamerà la funzione main (numero massimo di generazioni)
     w = p.run(main,50)
     
-
-
+   
 if __name__ == "__main__":
 
     #Caricamento del file di configurazione
