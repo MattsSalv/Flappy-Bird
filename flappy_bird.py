@@ -136,7 +136,7 @@ class Pipe:
     
 #Creazione del terreno
 class Base:
-    VEL = 5
+    VEL = 2.5
     WIDTH = BASE_IMG.get_width()
     IMG = BASE_IMG
 
