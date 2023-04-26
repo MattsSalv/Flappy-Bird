@@ -329,6 +329,35 @@ def main(genomes, config):
                 if output[0] > 0.5:                                            #Posso mettere 0 perchè ho solo un neurone di uscita
                     bird.jump()
            
+            for pipe in pipes:
+                for x,bird in enumerate(birds):                                #Gestisce le collisioni di ogni uccellino con i tubi, si occupa di rimuove gli uccellini che collidono
+                    if pipe.collide(bird):
+                        ge[x].fitness -= 1                                     #Il fitness dell'uccellino che ha colpito il tubo viene decrementato a 1 per non influenzare gli altri
+                        birds.pop(x)
+                        nets.pop(x)
+                        ge.pop(x)
+                        
+                    if not pipe.passed and pipe.x < bird.x:                    #Controlla che se il singolo uccellino ha passato il tubo
+                        pipe.passed = True    
+                        add_pipe = True
+            
+                if pipe.x + pipe.PIPE_TOP.get_width() < 0:                     #Si occupa di rimuovere il tubo una volta che l'uccellino lo ha superato
+                    rem.append(pipe)    
+
+            if add_pipe:                                                       #Se supera i tubi, il punteggio viene incrementato e il valore di fitness dell'uccellino viene incrementato di 5 
+                score +=1
+                for g in ge:
+                    g.fitness += 5
+                pipes.append(Pipe(600))                                        #Aggiunge un nuovo pipe dopo che lo si è superato
+
+            for r in rem:
+                pipes.remove(r)
+
+            for x, bird in enumerate(birds):                                   #Controlla le collissioni del singolo uccellino con il suolo e che non vada oltre la parte superiore dello schermo
+                if bird.y + bird.img.get_height() - 10 >= 730 or bird.y < -50:
+                    birds.pop(x)
+                    nets.pop(x)
+                    ge.pop(x)    
 ```
 
 <br> <br>
