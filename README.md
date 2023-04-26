@@ -45,13 +45,13 @@ A partire da reti estremamente semplici, in quanto completamente prive di neuron
 
 <br>
 
-L'algoritmo presenta i seguenti step:
+Ogni *algorimo genetico* (*GA*) presenta i seguenti step:
 
-1. Inizializzazione
-2. Selezione
-3. Operatori Genetici
-4. Euristica
-5. Terminazione
+1. **Inizializzazione**: Viene creata la prima *generazione* composta da un numero predefinito di elementi, solitamente la popolazione iniziale viene generata in maniera casuale
+2. **Selezione**: Alla terminazione di ogni generazione, vengono selezionati alcuni campioni attraverso una *funzione di fitness* che ne valuta la loro performance. 
+3. **Operatori Genetici**: L'operazione successiva è la riproduzione della popolazine selezionata (*Parents*) formando nuovi individui (*Childs*) attraverso gli *operatori genetici* di *crossover* e di *mutazione*. La nuova generazione presenterà quindi parte delle caratteristiche dei genitori pur avendo delle caratteristiche innovative, rendendo la nuova generazione differente dalla precedente (e teoricamente più efficiente).
+4. **Euristica**: Possono essere applicate operazioni *euristiche* aggiuntive per velocizzare i calcoli. Ad esempio l'euristica *speciation* penalizza il *crossover* tra soluzioni candidate che sono troppo simili tra loro.
+5. **Terminazione**: Il processo generazionale viene ripetuto fino al raggiungimento di una condizione di terminazione, una delle possibili ccondizioni di terminazione è il superamento del punteggio di *fitness threshold* preventivamente stabilito.
 
 <br>
 
@@ -94,6 +94,7 @@ L'utilizzo dell'algoritmo porta i seguenti vantaggi rispetto ad analoghi GA:
 - **crossover**: incrocio di *Genotipi*
 - **Mutazione strutturale**: evento che può cambiare sia il *Peso della connessione* che la *Topologia della Rete*, avviene in 2 modalità, *aggiungendo una connessione* tra due nodi non connessi precedentemente oppure *aggiungendo un nodo* in una connessione preesistente dividendola in due.
 <p align="center"> <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/Mutazione.PNG" alt= “” width="40%" height="40%"> </p>
+- **fitness threshold**: valore di ricomensa della *popolazione* oltre il quale termina l'algoritmo (raggiungimento situazione ottimale)
 
 
 
