@@ -5,8 +5,8 @@ import os
 import random
 pygame.font.init()
 
-
-WIN_WIDTH = 600             #Dimensione delle finestra di gioco
+#Dimensione delle finestra di gioco
+WIN_WIDTH = 600             
 WIN_HEIGHT = 800
 
 #Nelle righe sottostanti vengono importante e ridemsnionate le immagini di gioco
@@ -21,9 +21,9 @@ STAT_FONT = pygame.font.SysFont("comicsans", 50) #CAMBIARE FONT
 #Creazione dell'uccellino
 class Bird:                     
     IMGS = BIRD_IMGS
-    MAX_ROTATION = 25
-    ROT_VEL = 20
-    ANIMATION_TIME = 5 #Ogni quanto cambia il frame e l'uccellino muove le ali
+    MAX_ROTATION = 25   #Valore massimo di rotazione (per non farlo mai andare a testa in giù)
+    ROT_VEL = 20        #Velocità di rotazione dell'immagine dell'uccellino (quando sale/scende)
+    ANIMATION_TIME = 5  #Ogni quanto cambia il frame e l'uccellino muove le ali
 
     def __init__(self, x, y):    #Inizializzazione dell'uccellino
         self.x = x  
@@ -88,11 +88,11 @@ class Bird:
 
 
 #Creazione dei tubi
-class Pipe:                         
-    GAP = 200
-    VEL = 5 
+class Pipe:
+    GAP = 200                      #Distanza costante tra un tubo ed il successivo   
+    VEL = 5                        #Velocità costante di movimento del tubo
 
-    def __init__(self, x):          #Inizializzazione del tubo
+    def __init__(self, x):         #Inizializzazione del tubo
         self.x = x
         self.height = 0
         #self.gap = 100
