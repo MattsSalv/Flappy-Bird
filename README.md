@@ -238,8 +238,8 @@ fitness_criterion     = max                 #Decidiamo quali uccellini tenere in
 fitness_threshold     = 100                 #Soglia che deve raggiungere il fitness prima che finisca il programma   
 pop_size              = 50                  #La dimensione dell popolazione per ogni generazione
 activation_default    = tanh                #Funzione di attivazione, nel nostro caso la tangente iperbolica(Tanh(x))
-bias_max_value          = 30.0              #Valore massimo che il  bias può assumere alla prima generazione(assegnato casualmente)
-bias_min_value          = -30.0             #Valore minimo che il  bias può assumere alla prima generazione(assegnato casualmente)
+bias_max_value        = 30.0                #Valore massimo che il  bias può assumere alla prima generazione(assegnato casualmente)
+bias_min_value        = -30.0               #Valore minimo che il  bias può assumere alla prima generazione(assegnato casualmente)
 ```
 
 <br> <br>
