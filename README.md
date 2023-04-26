@@ -176,15 +176,15 @@ Di seguito vengono riportate le classi principali utilizzate per implementare la
     ROT_VEL = 20
     ANIMATION_TIME = 5 #Ogni quanto cambia il frame e l'uccellino muove le ali
 
-    def __init__(self, x, y):    #Iniizializzazione dell'uccellino
+    def __init__(self, x, y):    #Inizializzazione dell'uccellino
     
-    def jump(self):              #SPIEGA
+    def jump(self):              #Descrizione dei parametri di salto
     
-    def move(self):              #SPIEGA
+    def move(self):              #Descrizione del movimento parabolico dell'uccellino, inclusa l'animazione di rotazione dell'immagine
     
-    def draw(self, win):         #SPIEGA
+    def draw(self, win):         #Descrizione del battito di ali dell'uccellino
     
-     def get_mask(self):         #SPIEGA
+     def get_mask(self):         #Associzione dell'immagine dell'uccellino alla maschera di collisione
  ```
  
  <br>
@@ -195,15 +195,15 @@ class Pipe:
     GAP = 200
     VEL = 5 
 
-    def __init__(self, x):      #SPIEGA
+    def __init__(self, x):      #Inizializzazione del tubo
        
-    def set_height(self):       #SPIEGA
+    def set_height(self):       #Gestisce l'altezza dei tubi
     
-    def move(self):             #SPIEGA
+    def move(self):             #Descrive il movimento orizzontale regolare del tubo
    
-    def draw(self, win):        #SPIEGA
+    def draw(self, win):        #Disegno del tubo
        
-    def collide(self, bird):    #SPIEGA
+    def collide(self, bird):    #Descrive il modo in cui l'uccellino può collidere con il tubo
 ```
 
  <br>
