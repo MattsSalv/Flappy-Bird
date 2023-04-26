@@ -18,13 +18,14 @@ BG_IMG = pygame.transform.scale(pygame.image.load(os.path.join("images", "bg.png
 STAT_FONT = pygame.font.SysFont("comicsans", 50) #CAMBIARE FONT
 
 
-class Bird:
+#Creazione dell'uccellino
+class Bird:                     
     IMGS = BIRD_IMGS
     MAX_ROTATION = 25
     ROT_VEL = 20
     ANIMATION_TIME = 5 #Ogni quanto cambia il frame e l'uccellino muove le ali
 
-    def __init__(self, x, y):    #Iniizializzazione dell'uccellino
+    def __init__(self, x, y):    #Inizializzazione dell'uccellino
         self.x = x  
         self.y = y
         self.tilt = 0
@@ -34,12 +35,12 @@ class Bird:
         self.img_count = 0
         self.img = self.IMGS[0]
 
-    def jump(self):
+    def jump(self):             #Descrizione dei parametri di salto
         self.vel = -10.5    
         self.tick_count = 0
         self.height = self.y
 
-    def move(self):
+    def move(self):             #Descrizione del movimento parabolico dell'uccellino, inclusa l'animazione di rotazione dell'immagine
         self.tick_count += 1
 
         d = self.vel*self.tick_count + 1.5*self.tick_count**2
@@ -59,7 +60,7 @@ class Bird:
             if self.tilt > -90:
                 self.tilt -= self.ROT_VEL  
 
-    def draw(self, win): 
+    def draw(self, win):                #Descrizione del battito di ali dell'uccellino
         self.img_count += 1
 
         if self.img_count < self.ANIMATION_TIME:
@@ -82,14 +83,16 @@ class Bird:
         new_rect = rotated_image.get_rect(center=self.img.get_rect(topleft = (self.x, self.y)).center)
         win.blit(rotated_image, new_rect.topleft)
 
-    def get_mask(self):
+    def get_mask(self):             #Associzione dell'immagine dell'uccellino alla maschera di collisione
         return pygame.mask.from_surface(self.img)    
 
-class Pipe:
+
+#Creazione dei tubi
+class Pipe:                         
     GAP = 200
     VEL = 5 
 
-    def __init__(self, x):
+    def __init__(self, x):          #Inizializzazione del tubo
         self.x = x
         self.height = 0
         #self.gap = 100
@@ -102,15 +105,15 @@ class Pipe:
         self.passed=False
         self.set_height()
 
-    def set_height(self):   #Gestisce l'altezza dei tubi
+    def set_height(self):        #Gestisce l'altezza dei tubi
         self.height = random.randrange(50, 450)
         self.top = self.height - self.PIPE_TOP.get_height()
         self.bottom = self.height + self.GAP
 
-    def move(self):
+    def move(self):                #Descrive il movimento orizzontale regolare del tubo
         self.x -= self.VEL
 
-    def draw(self, win): 
+    def draw(self, win):           #Disegno del tubo  
         win.blit(self.PIPE_TOP, (self.x, self.top))   
         win.blit(self.PIPE_BOTTOM, (self.x, self.bottom)) 
 
@@ -130,8 +133,10 @@ class Pipe:
         
         return False
 
+    
+#Creazione del terreno
 class Base:
-    VEL = 4
+    VEL = 5
     WIDTH = BASE_IMG.get_width()
     IMG = BASE_IMG
 
@@ -154,6 +159,8 @@ class Base:
         win.blit(self.IMG, (self.x1, self.y))   
         win.blit(self.IMG, (self.x2, self.y))           
 
+        
+#Creazione della finestra complessiva di gioco
 def draw_window(win, birds, pipes, base, score):
 
     win.blit(BG_IMG, (0,0))
