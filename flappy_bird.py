@@ -266,8 +266,6 @@ def main(genomes, config):
             base.move()
             draw_window(win, birds, pipes, base, score) #Crea i vari oggetti sullo schermo   
 
-
-
 def run(config_path):
 
     #Viene passato il path del file di configurazione e venogno settate le diverse proprietà
