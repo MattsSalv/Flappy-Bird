@@ -165,7 +165,7 @@ alla fine della simulazione si prendono gli uccellini con il punteggio di fitnes
 <br>
 
 ### Creazione della grafica 
-Di seguito vengono riportate le classi principali utilizzate per implementare la grafica di Flappy Bird, tra cui la classe *Bird* per la creazione degli uccellini, la classe *Pipe* per l'implementazione casuale dei tubi in basso e in alto e la classe *Base* per la costruzione della base inferiore del gioco
+Di seguito vengono riportate le classi principali utilizzate per implementare la grafica di Flappy Bird, tra cui la classe *Bird* per la creazione degli uccellini, la classe *Pipe* per l'implementazione casuale dei tubi in basso e in alto e la classe *Base* per la costruzione del terreno di gioco
 
 <br>
 
@@ -208,18 +208,18 @@ class Pipe:
 
  <br>
  
-***Creazione della base***
+***Creazione del terreno***
   ```ruby
 class Base:
     VEL = 4
     WIDTH = BASE_IMG.get_width()
     IMG = BASE_IMG
 
-    def __init__(self,y):     #SPIEGA
+    def __init__(self,y):     #Inizializzazione del terreno
 
-    def move(self):           #SPIEGA
+    def move(self):           #Descrizione del movimento del terreno (coerente con il movimento dei tubi)
     
-    def draw(self, win):      #SPIEGA
+    def draw(self, win):      #Associazione dell'immagine all'elemento terreno
 ``` 
 
 <br>
