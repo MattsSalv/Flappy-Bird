@@ -195,15 +195,15 @@ class Pipe:
     GAP = 200
     VEL = 5 
 
-    def __init__(self, x):    #SPIEGA
+    def __init__(self, x):      #SPIEGA
        
-    def set_height(self):     #SPIEGA
+    def set_height(self):       #SPIEGA
     
-    def move(self):           #SPIEGA
+    def move(self):             #SPIEGA
    
-    def draw(self, win):      #SPIEGA
+    def draw(self, win):        #SPIEGA
        
-    def collide(self, bird):  #SPIEGA
+    def collide(self, bird):    #SPIEGA
 ```
 
  <br>
@@ -215,12 +215,12 @@ class Base:
     WIDTH = BASE_IMG.get_width()
     IMG = BASE_IMG
 
-    def __init__(self,y):   #SPIEGA
+    def __init__(self,y):     #SPIEGA
 
-    def move(self):         #SPIEGA
+    def move(self):           #SPIEGA
     
-    def draw(self, win):    #SPIEGA
-```
+    def draw(self, win):      #SPIEGA
+``` 
 
 <br>
 
