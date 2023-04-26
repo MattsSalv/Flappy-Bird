@@ -186,7 +186,7 @@ def main(genomes, config):
     ge = []
     birds = []
 
-    #Creazione della rete neurale per ogni genomaD
+    #Creazione della rete neurale per ogni genoma
     for _, g in genomes:  
         g.fitness = 0 #Setto il valore del fitness di ogni genoma a 0
         net = neat.nn.FeedForwardNetwork.create(g, config) #creazione della rete neurale, passandogli il genoma e il file di configurazioned
@@ -203,7 +203,7 @@ def main(genomes, config):
 
     score = 0
 
-    run = True
+    run = True          #Avvia il gioco
 
     while run:
             clock.tick(30) #Gestisce il framerate(rallenta il gioco)
