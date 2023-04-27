@@ -38,7 +38,7 @@ Per modificare i parametri dell'algoritmo è necessario, impostarli nel file di 
 
 
 ## NEAT
-***NeuroEvolution of Augmenting Topologies*** (**NEAT**) è un *algoritmo genetico* (GA) *metaeuristico* che genera *reti neurali evolutive artificiali*, per  risolvere  problemi di *ottimizzazione stocastica*. La sua unicità è data dalla  capaità di creare una sua struttura sempre più complessa e nel contempo sempre più ottimale (analoga all'evoluzione naturale) attraverso un modello risolutivo a black-box.
+***NeuroEvolution of Augmenting Topologies*** (**NEAT**) è un *algoritmo genetico* (GA) *metaeuristico* che genera *reti neurali evolutive artificiali*, per  la risoluzione di problemi di *ottimizzazione stocastica*. La sua unicità è data dalla  capaità di creare una sua struttura sempre più complessa e nel contempo sempre più ottimale (analoga all'evoluzione naturale) attraverso un modello risolutivo a black-box.
 L'alogritmo è stato originariamente sviluppato Kenneth Stanley e Risto Miikkulainen nel 2002 all'Università del Texas ad Austin. 
 
 A partire da reti estremamente semplici, in quanto completamente prive di neuroni intermedi (*Hidden States*), NEAT ha generalmente performance più elevate nella ricerca di soluzioni  efficaci e robuste rispetto ad algoritmi di *reinforcement leaening* o a tecniche neuro-evolutive analoghe che però partono da topologie predeterminate o comunque casuali. Ciò è possibile grazie all'uso di strutture iniziali minime che sono facili da ottimizzare e rendono l'algoritmo estremamente veloce nella ricerca di soluzioni.
