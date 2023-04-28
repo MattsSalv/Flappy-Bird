@@ -1,3 +1,9 @@
+# Rispetto alla versione base, si ha una DISTANZA DELLA FESSURA tra due tubi, DISTANZA TRA I TUBI stessi e VELOCITA' DEI TUBI costante per una generazione intera, ma 
+# variabile da generazione a generazione, questo emula in parte il comportamento di un GA in un contesto pseudo-variabile da generazione a generazione
+
+
+
+
 import pygame
 import neat
 import time
