@@ -8,7 +8,6 @@ pygame.font.init()
 #Dimensione delle finestra di gioco
 WIN_WIDTH = 600             
 WIN_HEIGHT = 800
-DISTANCE=random.randrange(500, 700) 
 
 #Nelle righe sottostanti vengono importante e ridemsnionate le immagini di gioco
 BIRD_IMGS =  [pygame.transform.scale2x(pygame.image.load(os.path.join("images", "bird1.png"))), pygame.transform.scale2x(pygame.image.load(os.path.join("images", "bird2.png"))), pygame.transform.scale2x(pygame.image.load(os.path.join("images", "bird3.png")))]
@@ -207,6 +206,7 @@ def main(genomes, config):
     run = True          #Avvia il gioco
 
     while run:
+            distance=random.randrange(500, 700) #setto la distanza tra i tubi ogni volta differente per generazione
             clock.tick(30) #Gestisce il framerate(rallenta il gioco)
             for event in pygame.event.get():  #Si occupa di gestire la chiusura della finestra di gioco
                 if event.type == pygame.QUIT:
@@ -257,7 +257,7 @@ def main(genomes, config):
 
             if add_pipe:   #Se supera i tubi, il punteggio viene incrementato e il valore di fitness dell'uccellino viene incrementato di 5 
                 score +=1
-                pipes.append(Pipe(DISTANCE)) #Aggiunge un nuovo pipe a distanza VARIABILE dopo che lo si è superato
+                pipes.append(Pipe(distance)) #Aggiunge un nuovo pipe a distanza VARIABILE dopo che lo si è superato
 
             for r in rem:
                 pipes.remove(r)
