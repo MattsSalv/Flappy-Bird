@@ -89,7 +89,7 @@ class Bird:
 
 #Creazione dei tubi
 class Pipe:
-    GAP = random.randrange(150, 200)  #Distanza VARIABILE della fessura tra due tubi   
+    GAP = random.randrange(180, 230)  #Distanza VARIABILE della fessura tra due tubi   
     VEL = random.randrange(4, 8)     #Velocità VARIABILE di movimento del tubo
 
     def __init__(self, x):         #Inizializzazione del tubo
