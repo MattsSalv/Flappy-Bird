@@ -89,11 +89,14 @@ class Bird:
 
 #Creazione dei tubi
 class Pipe:
-    GAP = 200                      #Distanza costante della fessura tra due tubi  
-    VEL = 5                        #Velocità costante di movimento del tubo
+    GAP = random.randrange(170, 200)  #Distanza VARIABILE della fessura tra due tubi   
+    VEL = random.randrange(4, 9)     #Velocità VARIABILE di movimento del tubo
 
-    def __init__(self, x):         #Inizializzazione del tubo
+    def __init__(self, x, y):         #Inizializzazione del tubo
         self.x = x
+        self.y = y
+   
+
         self.height = 0
         #self.gap = 100
 
@@ -112,6 +115,7 @@ class Pipe:
 
     def move(self):                #Descrive il movimento orizzontale regolare del tubo
         self.x -= self.VEL
+        self.y -= self.y + random.randrange(4, 9)
 
     def draw(self, win):           #Disegno del tubo  
         win.blit(self.PIPE_TOP, (self.x, self.top))   
@@ -169,7 +173,7 @@ def draw_window(win, birds, pipes, base, score):
         pipe.draw(win)
 
     text = STAT_FONT.render("Score " + str(score), 1, (255, 255, 255))   
-    win.blit(text, (WIN_WIDTH - 10 - text.get_width(), 10))
+    win.blit(text, (WIN_WIDTH - 10 - text.get_width(), 10)) 
 
     base.draw(win)    
 
@@ -177,13 +181,6 @@ def draw_window(win, birds, pipes, base, score):
         bird.draw(win)
 
     pygame.display.update()
-
-def show_win(win):
-    text = STAT_FONT.render("HAI VINTO!", 1, (255, 255, 255), "#ff0000")   
-    win.blit(text, (WIN_WIDTH - 150 - text.get_width(), 150))
-
-    pygame.display.update()
-
 
 
 #Fitness function
@@ -204,7 +201,7 @@ def main(genomes, config):
 
 
     base = Base(730)
-    pipes = [Pipe(700)]
+    pipes = [Pipe(700, 200)]
     win = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT))  #creazione della fineastra di gioco
     clock = pygame.time.Clock()
 
@@ -212,14 +209,13 @@ def main(genomes, config):
 
     run = True          #Avvia il gioco
 
-    print(score)
-
     while run:
             clock.tick(30) #Gestisce il framerate(rallenta il gioco)
             for event in pygame.event.get():  #Si occupa di gestire la chiusura della finestra di gioco
                 if event.type == pygame.QUIT:
                     run = False
                     pygame.quit()
+                    quit()
 
             pipe_ind = 0
             if len(birds) > 0:
@@ -233,55 +229,50 @@ def main(genomes, config):
             #Per ogni frame che l'uccellino avanza viene aumentato il fitness di 0.1
             for x, bird in enumerate(birds):
                 bird.move()   
-                ge[x].fitness += 0.05
+                ge[x].fitness += 0.1
 
                 output = nets[x].activate((bird.y, abs(bird.y - pipes[pipe_ind].height), abs(bird.y - pipes[pipe_ind].bottom))) #Attiviamo la rete neurale passandogli i valori(Ritorna un array)
                 if output[0] > 0.5: #Posso mettere 0 perchè ho solo un neurone di uscita
                     bird.jump()
 
 
-            
-            if(score < 10):
-                add_pipe = False
-                rem = []
 
-                for pipe in pipes:
+            base.move()
+            add_pipe = False
+            rem = []
 
-                    pipe.move()
+            for pipe in pipes:
 
-                    for x,bird in enumerate(birds): #Gestisce le collisioni di ogni uccellino con i tubi, si occupa di rimuove gli uccellini che collidono
-                        if pipe.collide(bird):
-                            ge[x].fitness -= 1 #il fitness dell'uccellino che ha colpito il tubo viene decrementato a 1 per non influenzare gli altri
-                            birds.pop(x)
-                            nets.pop(x)
-                            ge.pop(x)
+                pipe.move()
 
-                        if not pipe.passed and pipe.x < bird.x: #Controlla che se il singolo uccellino ha passato il tubo
-                            pipe.passed = True    
-                            add_pipe = True
-                
-                    if pipe.x + pipe.PIPE_TOP.get_width() < 0: #Si occupa di rimuovere il tubo una volta che l'uccellino lo ha superato
-                        rem.append(pipe)    
-
-                if add_pipe:   #Se supera i tubi, il punteggio viene incrementato e il valore di fitness dell'uccellino viene incrementato di 5 
-                    score +=1
-                    for g in ge:
-                        g.fitness += 5
-                    pipes.append(Pipe(600)) #Aggiunge un nuovo pipe dopo che lo si è superato
-
-                for r in rem:
-                    pipes.remove(r)
-
-                for x, bird in enumerate(birds): #Controlla le collissioni del singolo uccellino con il suolo e che non vada oltre la parte superiore dello schermo
-                    if bird.y + bird.img.get_height() - 10 >= 730 or bird.y < -50:
+                for x,bird in enumerate(birds): #Gestisce le collisioni di ogni uccellino con i tubi, si occupa di rimuove gli uccellini che collidono
+                    if pipe.collide(bird):
                         birds.pop(x)
                         nets.pop(x)
-                        ge.pop(x)    
-                    
-                base.move()
-                draw_window(win, birds, pipes, base, score) #Crea i vari oggetti sullo schermo
-            else:
-                show_win(win)           
+                        ge.pop(x)
+
+                    if not pipe.passed and pipe.x < bird.x: #Controlla che se il singolo uccellino ha passato il tubo
+                        pipe.passed = True    
+                        add_pipe = True
+            
+                if pipe.x + pipe.PIPE_TOP.get_width() < 0: #Si occupa di rimuovere il tubo una volta che l'uccellino lo ha superato
+                    rem.append(pipe)    
+
+            if add_pipe:   #Se supera i tubi, il punteggio viene incrementato e il valore di fitness dell'uccellino viene incrementato di 5 
+                score +=1
+                pipes.append(Pipe(600, 300)) #Aggiunge un nuovo pipe dopo che lo si è superato
+
+            for r in rem:
+                pipes.remove(r)
+
+            for x, bird in enumerate(birds): #Controlla le collissioni del singolo uccellino con il suolo e che non vada oltre la parte superiore dello schermo
+                if bird.y + bird.img.get_height() - 10 >= 730 or bird.y < -50:
+                    birds.pop(x)
+                    nets.pop(x)
+                    ge.pop(x)    
+                
+            base.move()
+            draw_window(win, birds, pipes, base, score) #Crea i vari oggetti sullo schermo   
 
 def run(config_path):
 

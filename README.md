@@ -2,25 +2,21 @@
 <p align="center" ><b><i>di Mattia Salvatti e Claudio Onorati </b></i></p>
 
 <br> <br>
+## INTRODUZIONE
+Flappy Bird è uno dei giochi arcade più famosi degli ultimi anni, sviluppato da Dong Nguyen nel 2013. Questo gioco, oltre ad essere incredibilmente popolare, è noto anche per la sua grande difficoltà: i giocatori devono controllare un piccolo uccellino mentre vola attraverso una serie di tubi, schivando tutti gli ostacoli lungo il tragitto. Per farlo, devono premere continuamente sullo schermo, facendo sbattere le ali dell'uccellino per mantenerlo in volo.
 
-Il progetto ha l'obbiettivo di utilizzare l'algoritmo genetico ***NEAT*** per imparare a giocare a ***Flappy Bird***.
-
-Il gioco è stato ricreato in Python ed è stata utilizzata la libreria ***NEAT-Python*** per implementare l'algoritmo genetico.
-
-<br>
+La grande sfida di Flappy Bird sta nel cercare di ottenere il punteggio più alto possibile, evitando di toccare qualsiasi ostacolo lungo la strada. Ma, come spesso accade nei giochi più difficili, la soluzione a questo problema è stata trovata grazie all'uso dell'intelligenza artificiale.
 
 <p align="center">
  <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/Cover.png" alt= “” width="40%" height="40%">
 </p>
 
-<br> 
- 
+L'obiettivo del progetto è di impiegare l'algoritmo genetico ***NEAT*** per apprendere a giocare a ***Flappy Bird*** mediante la riproduzione del gioco in Python utilizzando la libreria ***NEAT-Python*** per la realizzazione dell'algoritmo genetico.
+
+<br>
 
 
->**NB** è necessario installare le seguenti librerie per avviare il programma: 
-> - NEAT-Python <https://neat-python.readthedocs.io/en/latest/installation.html> 
-> - PyGame <http://www.pygame.org/downloads.shtml>
-> - ...
+<br>
 
 
 
@@ -29,29 +25,33 @@ Il gioco è stato ricreato in Python ed è stata utilizzata la libreria ***NEAT-
 
 
 ## Avviare il programma
-***comandi base  per avviare il programma (DA CANCELLARE)***
 
+>**NB** Per avviare il programma è necessario installare le seguenti librerie: 
+> - NEAT-Python <https://neat-python.readthedocs.io/en/latest/installation.html> 
+> - PyGame <http://www.pygame.org/downloads.shtml>
+> - ...
 
+Per modificare i parametri dell'algoritmo è necessario, impostarli nel file di configurazione, denominato config.txt
 
 <br> <br>
 
 
 
 ## NEAT
-***NeuroEvolution of Augmenting Topologies*** (**NEAT**) è un *algoritmo genetico* (GA) per la generazione di *reti neurali evolutive artificiali*, per la risoluzione di attività di *Reinforcement Learning*, in particolare in presenza di informazioni *Hidden State*. La sua unicità è data dalla  capaità di creare una sua struttura sempre più complessa e nel contempo sempre più ottimale (analoga all'evoluzione naturale). 
+***NeuroEvolution of Augmenting Topologies*** (**NEAT**) è un *algoritmo genetico* (GA) di *metaeuristic search* che genera *reti neurali evolutive artificiali*, per  la risoluzione di problemi di *ottimizzazione stocastica*. La sua unicità è data dalla  capaità di creare una sua struttura sempre più complessa e nel contempo sempre più ottimale (analoga all'evoluzione naturale) attraverso un modello risolutivo a black-box.
 L'alogritmo è stato originariamente sviluppato Kenneth Stanley e Risto Miikkulainen nel 2002 all'Università del Texas ad Austin. 
 
-A partire da reti estremamente semplici, in quanto completamente prive di neuroni intermedi, NEAT ha generalmente performance più elevate nella ricerca di soluzioni  efficaci e robuste rispetto ad algoritmi di *reinforcement leaening* o a tecniche neuro-evolutive analoghe che però partono da topologie predeterminate o comunque casuali. Ciò è possibile grazie all'uso di strutture iniziali minime che sono facili da ottimizzare e rendono l'algoritmo estremamente veloce nella ricerca di soluzioni.
+A partire da reti estremamente semplici, in quanto completamente prive di neuroni intermedi (*Hidden States*), NEAT ha generalmente performance più elevate nella ricerca di soluzioni  efficaci e robuste rispetto ad algoritmi di *reinforcement leaening* o a tecniche neuro-evolutive analoghe che però partono da topologie predeterminate o comunque casuali. Ciò è possibile grazie all'uso di strutture iniziali minime che sono facili da ottimizzare e rendono l'algoritmo estremamente veloce nella ricerca di soluzioni.
 
 <br>
 
-L'algoritmo presenta i seguenti step:
+Ogni *algorimo genetico* (*GA*) presenta i seguenti step:
 
-1. Inizializzazione
-2. Selezione
-3. Operatori Genetici
-4. Euristica
-5. Terminazione
+1. **Inizializzazione**: Viene creata la prima *generazione* composta da un numero predefinito di elementi, solitamente la popolazione iniziale viene generata in maniera casuale
+2. **Selezione**: Alla terminazione di ogni generazione, vengono selezionati alcuni campioni attraverso una *funzione di fitness* che ne valuta la loro performance. 
+3. **Operatori Genetici**: L'operazione successiva è la riproduzione della popolazine selezionata (*Parents*) formando nuovi individui (*Childs*) attraverso gli *operatori genetici* di *crossover* e di *mutazione*. La nuova generazione presenterà quindi parte delle caratteristiche dei genitori pur avendo delle caratteristiche innovative, rendendo la nuova generazione differente dalla precedente (e teoricamente più efficiente).
+4. **Euristica**: Possono essere applicate operazioni *euristiche* aggiuntive per velocizzare i calcoli. Ad esempio l'euristica *speciation* penalizza il *crossover* tra soluzioni candidate che sono troppo simili tra loro.
+5. **Terminazione**: Il processo generazionale viene ripetuto fino al raggiungimento di una condizione di terminazione, una delle possibili ccondizioni di terminazione è il superamento del punteggio di *fitness threshold* preventivamente stabilito.
 
 <br>
 
@@ -72,6 +72,13 @@ L'utilizzo dell'algoritmo porta i seguenti vantaggi rispetto ad analoghi GA:
 
 **Limiti di NEAT:**
 
+1. **Fitness functions ripetute**: Il calcolo della *fitness function* può essere molto complesso e dispendioso in termini di risorse, il fatto che questa funzione venga ripetuta per ogni generazione porta a rendere l'algoritmo spesso inefficiente (LENTEZZA)
+2. **Non scalabilità in complessità**: Quando il numero di elementi esposti alla mutazione è elevato, si verifica spesso un aumento esponenziale delle dimensioni dello spazio di ricerca. Per rendere tali problemi trattabili da *GA* , devono essere scomposti nella rappresentazione più semplice possibile.
+3. **La soluzione ottimale NON è SEMPRE la migliore in assoluto**: un problema generale di ogni algorimo di *Reinforcement Learning* è che la ricerca della soluzione deve essere limitata in termini di risorse (tempo e memoria), in termini di iterazioni (con forte dipendeza della qualità dalle iterazioni precedenti) oppure (in particolare per i *GA*) in termini di *punteggio di fitness* per poter dare una risposta in tempi accettabili per il problema. Ciò comporta che la soluzione ottimale trovata potrebbe non essere la migliore in assoluto se l'algoritmo avesse a disposizione maggiori iterazioni.
+4. **Fitness function difficile da implementare** in problemi complessi non è sempre facile implementare una funzione di fitness che risolva il problema in questione (NB: la *fitness funcrion* è specifica per ogni problema affrontato)
+5. **Selezione casuale della popolazione iniziale**: Dato che la prima generazione è selezionata casualmente, è SPESSO necessario molto più tempo rispetto ad altri algoritmi, inoltre non è prevedibile il tempo (o il numero di generazioni) necessario per raggiungere la "situazione ottimale"
+5. Hidden state????????
+
 <br> <br>
 
 **DIZIONARIO NEAT:**
@@ -90,32 +97,42 @@ L'utilizzo dell'algoritmo porta i seguenti vantaggi rispetto ad analoghi GA:
 - **Generazione**: singolo insieme di un *Genotipo* e di un *Fenotipo* che rappresenta la singola iterazione
 - **Popolazione**: parte o totalità di una *Generazione*
 - **Funzione di fitness**: è la funzione che a seconda di parametri di input forniti, produce un output che valuta la "bontà" degli elementi rispetto al problema in questione
-- **Funzione di attivazione**:
-- **crossover**: incrocio di *Genotipi*
+- **Funzione di attivazione**: funzione che trasfotma la media pesata dei valori di input in valori di output
+- **Crossover**: incrocio di *Genotipi*
 - **Mutazione strutturale**: evento che può cambiare sia il *Peso della connessione* che la *Topologia della Rete*, avviene in 2 modalità, *aggiungendo una connessione* tra due nodi non connessi precedentemente oppure *aggiungendo un nodo* in una connessione preesistente dividendola in due.
 <p align="center"> <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/Mutazione.PNG" alt= “” width="40%" height="40%"> </p>
+
+- **fitness threshold**: valore di ricomensa della *popolazione* oltre il quale termina l'algoritmo (raggiungimento situazione ottimale)
 
 
 
 <br> <br>
 
 ## COME VIENE USATO NEAT IN FLAPPY BIRD
-**Cosa è Flappy Bird?** 
 
-Flappy Bird è un gioco arcade *Single Agent* sviluppato da Dong Nguyen nel 2013. Il gioco è molto semplice ma altrettanto difficile: i giocatori devono controllare un uccellino attraverso una serie di tubi, premendo sullo schermo per farlo sbattere le ali e volare. Lo scopo del gioco è di ottenere il punteggio più alto possibile, evitando di toccare qualsiasi ostacolo sulla strada.
+**Le reti neurali** 
 
-L'intelligenza artificale applicata a  flappy bird, esegue una serie di generazioni, dove l'ia migliora esponenzialmente fino ad arrivare ad un punto in cui non può essere battuto e il gioco continui all'infinito.
+Per realizzare un'IA in grado di giocare a Flappy Bird, sono stati utilizzati modelli di apprendimento automatico noti come "reti neurali". Questi strumenti si ispirano alla struttura e al funzionamento del cervello umano, e sono composti da diversi livelli, ognuno dei quali ha uno scopo specifico.
 
-Per realizzare un'intelligenza artificiale in grado di giocare a flappy bird sono state utilizzate le reti neurali, ovvero un tipo di modello di apprendimento automatico che sono ispirati alla struttura e al funzionamento del cervello umano.
-Le reti neurali sono composte da diversi livelli(Layer), nel nostro gioco avremo un primo livello chiamato ***Input Layer***, ovvero le informazioni che la nostra rete neurale conosce e un livello finale chiamato ***Output Layer*** che si occupa di dice all'AI cosa fare.
-In flappy bird le informazioni che conosciamo a priori sono la posizone dell'uccellino e la posizione dei tubi, grazie a queste informazioni è possibile calcolare la distanza che separa l'uccellino dai tubi, quest'ultime assieme alla posizione dell'uccellino saranno le informazioni in input alla nostra rete neurale.
-Sul nodo di output la rete neurale dirà all'uccellino se saltare o no.
+Nel caso di Flappy Bird, la rete neurale ha due livelli principali: il primo è chiamato "Input Layer", ed è costituito dalle informazioni che l'IA ha a disposizione.
+
+Il secondo livello, invece, è il "Output Layer", che ha il compito di decidere quale azione intraprendere in base alle informazioni raccolte nel primo livello.
+
+Tra il livello di input e il livello di output c'è uno strato di mezzo chiamato hidden layer (livello nascosto), composto da strati intermedi di neuroni nell'architettura di una rete neurale artificiale. Questi strati elaborano l'input ricevuto e producono dei parametri che saranno utilizzati dallo strato successivo per produrre l'output finale.
+
+<p align="center">
+ <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/hiddenlayer.png" alt= “” width="50%" height="0%">
+</p>
+
+
+Ma la vera sfida di Flappy Bird sta nella capacità dell'IA di migliorarsi continuamente, grazie a una serie di "generazioni" in cui viene testata e valutata la sua capacità di sconfiggere il gioco. In questo modo, l'IA impara ad adattarsi a situazioni sempre più difficili, fino a raggiungere un livello di abilità tale da non poter essere più battuta.
+
+Le informazioni che la rete neurale ha a disposzione nell'input layer sono la posizione dell'uccelino e la distanza tra quest'ultimo e i tubi, mentre l'output layer avrà il compito di decidere se far saltare o meno l'uccelino.
 
 <p align="center">
  <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/neural.png" alt= “” width="50%" height="50%">
+ <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/gameplay_con_parametri.png" alt= “” width="50%" height="50%">
 </p>
-
-***INSERIRE IMMAGINE UCCELLINO CON PARAMETRI***
 
 I nodi dell'input layer sono collegati al nodo dell'output layer tramite una connessione, ognuna di queste connessioni ha un peso chiamato, ***Weight***. 
 Il valore del wheight è diverso per ogni connessione è il suo scopo è quello di migliorare, o in alcuni casi, peggiorare la rete neurale.
@@ -128,15 +145,15 @@ Il valore del wheight è diverso per ogni connessione è il suo scopo è quello 
 
 ***Come funziona la rete neurale in Flappy Bird?***
 
-Il primo passo è passare dei valori a nodi in input, successivamente per ogni connessione verrà assegnato un Weight, sccuessivamente a questi valori verranno applicate delle funzioni che permettaranno al nodo di outpt di eseguire una determinata azione.
+Il processo per far funzionare una rete neurale inizia con il passaggio di valori ai nodi di input. Ciascuna connessione riceverà poi un peso e questi valori saranno elaborati attraverso funzioni che consentiranno ai nodi di output di eseguire azioni specifiche.
 
-La prima azione che viene esegita è la somma ponderata $$\sum_{i=1}^n (Input_i * Weight_i)$$ e il risultato verrà passato al nodo di output, successivamente sommato un parametro aggiuntivo chiamato BIAS, questo parametro ci permette di controllare la flessibilità e l'adattabilità delle reti neurali, spostando la funzione di attivazione della rete nella direzione desiderata, qualora i pesi non dovessero riuscirci.
+La prima azione è la somma ponderata, che viene poi passata al nodo di output. Successivamente, verrà sommato il BIAS, un parametro che consente di controllare la flessibilità e l'adattabilità delle reti neurali. In questo modo, se i pesi non funzionano correttamente, si può spostare la funzione di attivazione della rete nella direzione desiderata.
 
-Il valore ottenuto viene poi passato a una funzione chiamata ***Funzione di Attivazione***, che ci permette di ottenere un valorecompreso tra due valori impostati. Esistono molte funzioni di attivazione, quella piu adatta per il caso di flappy Bird è la funzione Tangente iperbolica Tanh(x), che ci permette di ottenere un valore compreso tra -1 e 1, in particolare se il numero in uscita dalla somma ponderata è un numero positivo grande il valore tenderà ad 1, se è un numero negativo grande, tenderà ad -1 altrimenti sarà un numero compreso -1 e 1.
+Il risultato ottenuto viene quindi passato alla funzione di attivazione, che permette di ottenere un valore compreso tra due livelli prestabiliti. Tra le varie funzioni disponibili, la Tanh(x), ossia la tangente iperbolica, è quella più adatta per il gioco Flappy Bird. Infatti, permette di ottenere un valore compreso tra -1 e 1. Se il valore in uscita dalla somma ponderata è un numero positivo grande, tenderà a 1; se è un numero negativo grande, tenderà a -1. In ogni altro caso, il valore sarà compreso tra -1 e 1.
 
 <p align="center">
- <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/functions.png" alt= “” width="50%" height="50%">
- <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/tanh.png" alt= “” width="50%" height="50%">
+ <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/functions.png" alt= “” width="30%" height="30%">
+ <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/tanh.png" alt= “” width="30%" height="30%">
 </p>
 
 Grazie a questo valore il nodo di output sarà in grado di eseguire una determinata azione, per il caso di Flappy Bird se il valore sarà maggiore di 0.5 l'uccellino salterà.
@@ -162,36 +179,74 @@ alla fine della simulazione si prendono gli uccellini con il punteggio di fitnes
 ## FLAPPY BIRD IA CODE
 ***Spiegazione del codice per intero (solo le parti essenziali) (DA CANCELLARE)***
 
-###Creazione della grafica 
+<br>
+
+### Creazione della grafica 
+Di seguito vengono riportate le classi principali utilizzate per implementare la grafica di Flappy Bird, tra cui la classe *Bird* per la creazione degli uccellini, la classe *Pipe* per l'implementazione casuale dei tubi in basso e in alto e la classe *Base* per la costruzione del terreno di gioco
+
+<br>
 
  ***Creazione dell'uccellino***
+  ```ruby
+  class Bird:  
+    MAX_ROTATION = 25            #Valore massimo di rotazione (per non farlo mai andare a testa in giù)
+    ROT_VEL = 20                 #Velocità di rotazione dell'immagine dell'uccellino (quando sale/scende)
+    ANIMATION_TIME = 5           #Ogni quanto cambia il frame e l'uccellino muove le ali
+
+    def __init__(self, x, y):    #Inizializzazione dell'uccellino
+    
+    def jump(self):              #Descrizione dei parametri di salto
+    
+    def move(self):              #Descrizione del movimento parabolico dell'uccellino, inclusa l'animazione di rotazione dell'immagine
+    
+    def draw(self, win):         #Descrizione del battito di ali dell'uccellino
+    
+     def get_mask(self):         #Associzione dell'immagine dell'uccellino alla maschera di collisione
+ ```
  
- ```ruby
+ <br>
+ 
+  ***Creazione dei tubi***
+  ```ruby
 class Pipe:
-    GAP = 200
-    VEL = 5 
+    GAP = 200                   #Distanza costante della fessura tra due tubi
+    VEL = 5                     #Velocità costante di movimento del tubo
 
-    def __init__(self, x):
-        self.x = x
-        self.height = 0
-        #self.gap = 100
-
-        self.top = 0
-        self.bottom = 0
-        self.PIPE_TOP = pygame.transform.flip(PIPE_IMG, False, True)                 #Crea il tubo al contrario
-        self.PIPE_BOTTOM = PIPE_IMG
-
-        self.passed=False
-        self.set_height()
-
-    def set_height(self):                                                            #Gestisce l'altezza dei tubi
-        self.height = random.randrange(50, 450)
-        self.top = self.height - self.PIPE_TOP.get_height()
-        self.bottom = self.height + self.GAP
+    def __init__(self, x):      #Inizializzazione del tubo
+       
+    def set_height(self):       #Gestisce l'altezza dei tubi
+    
+    def move(self):             #Descrive il movimento orizzontale regolare del tubo
+   
+    def draw(self, win):        #Disegno del tubo
+       
+    def collide(self, bird):    #Descrive il modo in cui l'uccellino può collidere con il tubo
 ```
 
+ <br>
+ 
+***Creazione del terreno***
+  ```ruby
+class Base:
+    VEL = 2.5                 #Velocità di movimento del terreno (Associata per essere coerente con la velocità dei tubi)
 
-###Implementazione di NEAT###
+    def __init__(self,y):     #Inizializzazione del terreno
+
+    def move(self):           #Descrizione del movimento del terreno (coerente con il movimento dei tubi)
+    
+    def draw(self, win):      #Associazione dell'immagine all'elemento terreno
+``` 
+
+<br>
+
+***Creazione della finestra complessiva di gioco***
+  ```ruby
+def draw_window(win, birds, pipes, base, score):  #Creazione degli elementi quali uccelli, tubi, base, punteggio e la finetra di gioco stessa
+```
+
+<br> <br>
+
+### Implementazione di NEAT
 
 Il primo step è impostare i parametri nel file di configurazione di neat.
 Di seguito i parametri più importanti:
@@ -199,9 +254,9 @@ Di seguito i parametri più importanti:
 fitness_criterion     = max                 #Decidiamo quali uccellini tenere in base al  valore del fitness -> Max = Valore più alto
 fitness_threshold     = 100                 #Soglia che deve raggiungere il fitness prima che finisca il programma   
 pop_size              = 50                  #La dimensione dell popolazione per ogni generazione
-activation_default    = tanh              #Funzione di attivazione, nel nostro caso la tangente iperbolica(Tanh(x))
-bias_max_value          = 30.0              #Valore massimo che il  bias può assumere alla prima generazione(assegnato casualmente)
-bias_min_value          = -30.0             #Valore minimo che il  bias può assumere alla prima generazione(assegnato casualmente)
+activation_default    = tanh                #Funzione di attivazione, nel nostro caso la tangente iperbolica(Tanh(x))
+bias_max_value        = 30.0                #Valore massimo che il  bias può assumere alla prima generazione(assegnato casualmente)
+bias_min_value        = -30.0               #Valore minimo che il  bias può assumere alla prima generazione(assegnato casualmente)
 ```
 
 <br> <br>
@@ -230,8 +285,7 @@ Una volta creata, viene lanciata la funzione di fitness chiamata **main**, per u
     #configurazione della fitness function, 50 è il numero di volte che chiamerà la funzione main (numero massimo di generazioni)
     w = p.run(main,50)
     
-
-
+   
 if __name__ == "__main__":
 
     #Caricamento del file di configurazione
@@ -251,28 +305,20 @@ Succesivamene viene creata la finestra di gioco contenente le varie componenti d
 ```ruby
 def main(genomes, config):  
 
-    nets = []
-    ge = []
-    birds = []
+    nets = []                                                                  #SPIEGA
+    ge = []                                                                    #SPIEGA
+    birds = []                                                                 #SPIEGA
 
     #Creazione della rete neurale per ogni genomaD
     for _, g in genomes:  
         g.fitness = 0                                                          #Valore del fitness di ogni genoma settato a 0
         net = neat.nn.FeedForwardNetwork.create(g, config)                     #Creazione della rete neurale, passandogli il genoma e il file di configurazione
-        nets.append(net)
         birds.append(Bird(230, 350))                                           #Creazione dell'uccellino relativo al genoma
-        ge.append(g)
 
+    base = Base(730)                                                           #SPIEGA
+    pipes = [Pipe(700)]                                                        #SPIEGA
 
-
-    base = Base(730)
-    pipes = [Pipe(700)]
-    win = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT))                      #Creazione della fineastra di gioco
-    clock = pygame.time.Clock()
-
-    score = 0
-
-    run = True
+    score = 0                                                                  #SPIEGA
 ```
 
 <br> <br>
@@ -288,9 +334,6 @@ while run:
   clock.tick(30)                                                                #Gestisce il framerate, serve per rallentare il gioco
               for event in pygame.event.get():                                  #Si occupa di gestire la chiusura della finestra di gioco
                   if event.type == pygame.QUIT:
-                      run = False
-                      pygame.quit()
-                      quit()
 
               pipe_ind = 0
               if len(birds) > 0:
@@ -311,6 +354,55 @@ while run:
                   
                   if output[0] > 0.5:  
                       bird.jump()
+```
+
+<br> </br>
+
+Le righe successive si occupano di gestire la logica del gioco, in particolare le prime righe gestiscono la movimentazione dei tubi nella schermata di gioco e la collissione degli agenti intelligenti con quest'ultimi.
+Ogni volta che l'agente intelligente oltrepassa un tubo il suo punteggio di fitness viene incrementato di 3, successivamente il tubo passato viene rimosso dalla schermata e viene aggiunto un altro tubo.
+Le ultime righe controllano le collissioni con il suolo e il limite superiore della schermata di gioco
+
+```ruby
+            
+            add_pipe = False
+            rem = []
+
+            for pipe in pipes:
+ 
+                pipe.move()                                                      #Muove i tubi
+
+                for x,bird in enumerate(birds):                                  #Gestisce le collisioni di ogni uccellino con i tubi, si occupa di rimuovere gli
+                                                                                 #uccellini che collidono
+                    if pipe.collide(bird):
+                        ge[x].fitness -= 1                                       #il fitness dell'uccellino che ha colpito il tubo viene decrementato a 1 per non                                                                                        #influenzare gli altri e di conseguenza i successivi
+                        birds.pop(x)
+                        nets.pop(x)
+                        ge.pop(x)
+
+                    if not pipe.passed and pipe.x < bird.x:                      #Controlla che se il singolo uccellino ha passato il tubo
+                        pipe.passed = True    
+                        add_pipe = True                                          
+            
+                if pipe.x + pipe.PIPE_TOP.get_width() < 0:                       #Si occupa di rimuovere il tubo una volta che è uscito dalla visuale di gioco
+                    rem.append(pipe)    
+
+            if add_pipe:                                                         #Se supera i tubi, il punteggio viene incrementato e il valore di fitness dell'uccellino viene incrementato di 5                                                                                              
+                score +=1
+                for g in ge:
+                    g.fitness += 3
+                pipes.append(Pipe(600))                                          #Aggiunge un nuovo pipe dopo che lo si è superato
+
+            for r in rem:
+                pipes.remove(r)
+
+            for x, bird in enumerate(birds):                                                                                                                        
+                if bird.y + bird.img.get_height() - 10 >= 730 or bird.y < -50:   #Controlla le collissioni del singolo uccellino con il suolo e che non vada oltre la 
+                    birds.pop(x)                                                 #parte superiore dello schermo
+                    nets.pop(x)
+                    ge.pop(x)    
+                
+            base.move()                                                           #Muove il terreno del gioco
+            draw_window(win, birds, pipes, base, score)                           #Crea i vari oggetti sullo schermo 
 ```
 
 
