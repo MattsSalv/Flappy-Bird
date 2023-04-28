@@ -203,10 +203,12 @@ def main(genomes, config):
 
     score = 0
 
+    distance=random.randrange(500, 700) #setto la distanza tra i tubi ogni volta differente per generazione
+    
     run = True          #Avvia il gioco
 
     while run:
-            distance=random.randrange(500, 700) #setto la distanza tra i tubi ogni volta differente per generazione
+            
             clock.tick(30) #Gestisce il framerate(rallenta il gioco)
             for event in pygame.event.get():  #Si occupa di gestire la chiusura della finestra di gioco
                 if event.type == pygame.QUIT:
