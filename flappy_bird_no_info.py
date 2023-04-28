@@ -243,7 +243,6 @@ def main(genomes, config):
 
                 for x,bird in enumerate(birds): #Gestisce le collisioni di ogni uccellino con i tubi, si occupa di rimuove gli uccellini che collidono
                     if pipe.collide(bird):
-                        ge[x].fitness -= 1 #il fitness dell'uccellino che ha colpito il tubo viene decrementato a 1 per non influenzare gli altri
                         birds.pop(x)
                         nets.pop(x)
                         ge.pop(x)
