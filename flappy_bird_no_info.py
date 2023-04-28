@@ -256,6 +256,7 @@ def main(genomes, config):
                     rem.append(pipe)    
 
             if add_pipe:   #Se supera i tubi, il punteggio viene incrementato e il valore di fitness dell'uccellino viene incrementato di 5 
+                score +=1
                 for g in ge:
                 pipes.append(Pipe(600)) #Aggiunge un nuovo pipe dopo che lo si è superato
 
