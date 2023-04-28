@@ -89,7 +89,7 @@ class Bird:
 
 #Creazione dei tubi
 class Pipe:
-    GAP = 200                      #Distanza costante tra due tubi uno sopra all'altro  
+    GAP = 200                      #Distanza costante della fessura tra due tubi  
     VEL = 5                        #Velocità costante di movimento del tubo
 
     def __init__(self, x):         #Inizializzazione del tubo
