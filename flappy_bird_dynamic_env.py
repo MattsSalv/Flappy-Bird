@@ -94,9 +94,9 @@ class Pipe:
 
     def __init__(self, x, y):         #Inizializzazione del tubo
         self.x = x
-        self.tick_count += 1
+        tick_count += 1
 
-        d = self.vel*self.tick_count + 1.5*self.tick_count**2
+        d = self.vel*tick_count + 1.5*tick_count**2
 
         if d >= 16:
             d = 16
