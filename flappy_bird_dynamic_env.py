@@ -92,8 +92,9 @@ class Pipe:
     GAP = random.randrange(170, 200)  #Distanza VARIABILE della fessura tra due tubi   
     VEL = random.randrange(4, 9)     #Velocità VARIABILE di movimento del tubo
 
-    def __init__(self, x):         #Inizializzazione del tubo
+    def __init__(self, x, y):         #Inizializzazione del tubo
         self.x = x
+        self.y = y
         self.height = 0
         #self.gap = 100
 
