@@ -89,7 +89,7 @@ class Bird:
 
 #Creazione dei tubi
 class Pipe:
-    GAP = random.randrange(50, 350)                      #Distanza costante tra un tubo ed il successivo   
+    GAP = 30                      #Distanza costante tra un tubo ed il successivo   
     VEL = 5                        #Velocità costante di movimento del tubo
 
     def __init__(self, x):         #Inizializzazione del tubo
