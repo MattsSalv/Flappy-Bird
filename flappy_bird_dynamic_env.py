@@ -113,7 +113,7 @@ class Pipe:
 
     def move(self):                #Descrive il movimento orizzontale regolare del tubo
         self.x -= self.VEL
-         self.tick_count += 1
+        self.tick_count += 1
 
         s = random.randrange(4, 9)*self.tick_count
 
