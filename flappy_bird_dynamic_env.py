@@ -92,10 +92,8 @@ class Pipe:
     GAP = random.randrange(170, 200)  #Distanza VARIABILE della fessura tra due tubi   
     VEL = random.randrange(4, 9)     #Velocità VARIABILE di movimento del tubo
 
-    def __init__(self, x, y):         #Inizializzazione del tubo
+    def __init__(self, x):         #Inizializzazione del tubo
         self.x = x
-        self.y = y
-   
 
         self.height = 0
         #self.gap = 100
@@ -115,7 +113,7 @@ class Pipe:
 
     def move(self):                #Descrive il movimento orizzontale regolare del tubo
         self.x -= self.VEL
-        self.y -= self.y + random.randrange(4, 9)
+        self.height -= self.height + random.randrange(4, 9)
 
     def draw(self, win):           #Disegno del tubo  
         win.blit(self.PIPE_TOP, (self.x, self.top))   
@@ -201,7 +199,7 @@ def main(genomes, config):
 
 
     base = Base(730)
-    pipes = [Pipe(700, 200)]
+    pipes = [Pipe(700)]
     win = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT))  #creazione della fineastra di gioco
     clock = pygame.time.Clock()
 
