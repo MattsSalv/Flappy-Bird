@@ -113,7 +113,7 @@ class Pipe:
 
     def move(self):                #Descrive il movimento orizzontale regolare del tubo
         self.x -= self.VEL
-        self.y -= random.randrange(4, 9)
+        self.y -= self.VEL
 
     def draw(self, win):           #Disegno del tubo  
         win.blit(self.PIPE_TOP, (self.x, self.top))   
@@ -258,7 +258,7 @@ def main(genomes, config):
 
             if add_pipe:   #Se supera i tubi, il punteggio viene incrementato e il valore di fitness dell'uccellino viene incrementato di 5 
                 score +=1
-                pipes.append(Pipe(random.randrange(400, 800))) #Aggiunge un nuovo pipe dopo che lo si è superato
+                pipes.append(Pipe(600, 300)) #Aggiunge un nuovo pipe dopo che lo si è superato
 
             for r in rem:
                 pipes.remove(r)
