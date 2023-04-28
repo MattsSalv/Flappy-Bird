@@ -8,7 +8,7 @@ pygame.font.init()
 #Dimensione delle finestra di gioco
 WIN_WIDTH = 600             
 WIN_HEIGHT = 800
-DISTANCE=random.randrange(400, 600) 
+DISTANCE=random.randrange(500, 700) 
 
 #Nelle righe sottostanti vengono importante e ridemsnionate le immagini di gioco
 BIRD_IMGS =  [pygame.transform.scale2x(pygame.image.load(os.path.join("images", "bird1.png"))), pygame.transform.scale2x(pygame.image.load(os.path.join("images", "bird2.png"))), pygame.transform.scale2x(pygame.image.load(os.path.join("images", "bird3.png")))]
