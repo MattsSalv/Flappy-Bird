@@ -1,4 +1,3 @@
-
 import pygame
 import neat
 import time
@@ -199,7 +198,7 @@ def main(genomes, config):
 
     base = Base(730)
     pipes = [Pipe(700)]
-    win = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT))  #creazione della finestra di gioco
+    win = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT))  #creazione della fineastra di gioco
     clock = pygame.time.Clock()
 
     score = 0
@@ -244,6 +243,7 @@ def main(genomes, config):
 
                 for x,bird in enumerate(birds): #Gestisce le collisioni di ogni uccellino con i tubi, si occupa di rimuove gli uccellini che collidono
                     if pipe.collide(bird):
+                        ge[x].fitness -= 1 #il fitness dell'uccellino che ha colpito il tubo viene decrementato a 1 per non influenzare gli altri
                         birds.pop(x)
                         nets.pop(x)
                         ge.pop(x)
