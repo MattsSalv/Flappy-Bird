@@ -95,7 +95,7 @@ class Pipe:
     def __init__(self, x, y):         #Inizializzazione del tubo
         self.x = x
         self.y = y
-        self.y = self.y + random.randrange(4, 9)
+   
 
         self.height = 0
         #self.gap = 100
@@ -115,7 +115,7 @@ class Pipe:
 
     def move(self):                #Descrive il movimento orizzontale regolare del tubo
         self.x -= self.VEL
-        self.y -= self.VEL
+        self.y -= self.y + random.randrange(4, 9)
 
     def draw(self, win):           #Disegno del tubo  
         win.blit(self.PIPE_TOP, (self.x, self.top))   
