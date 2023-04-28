@@ -199,7 +199,7 @@ def main(genomes, config):
 
 
     base = Base(730)
-    pipes = [Pipe(700)]
+    pipes = [Pipe(700, 200)]
     win = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT))  #creazione della fineastra di gioco
     clock = pygame.time.Clock()
 
