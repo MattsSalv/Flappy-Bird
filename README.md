@@ -145,11 +145,11 @@ Il valore del wheight è diverso per ogni connessione è il suo scopo è quello 
 
 ***Come funziona la rete neurale in Flappy Bird?***
 
-Il primo passo è passare dei valori a nodi in input, successivamente per ogni connessione verrà assegnato un Weight, sccuessivamente a questi valori verranno applicate delle funzioni che permettaranno al nodo di outpt di eseguire una determinata azione.
+Il processo per far funzionare una rete neurale inizia con il passaggio di valori ai nodi di input. Ciascuna connessione riceverà poi un peso e questi valori saranno elaborati attraverso funzioni che consentiranno ai nodi di output di eseguire azioni specifiche.
 
-La prima azione che viene esegita è la somma ponderata $$\sum_{i=1}^n (Input_i * Weight_i)$$ e il risultato verrà passato al nodo di output, successivamente sommato un parametro aggiuntivo chiamato BIAS, questo parametro ci permette di controllare la flessibilità e l'adattabilità delle reti neurali, spostando la funzione di attivazione della rete nella direzione desiderata, qualora i pesi non dovessero riuscirci.
+La prima azione è la somma ponderata, che viene poi passata al nodo di output. Successivamente, verrà sommato il BIAS, un parametro che consente di controllare la flessibilità e l'adattabilità delle reti neurali. In questo modo, se i pesi non funzionano correttamente, si può spostare la funzione di attivazione della rete nella direzione desiderata.
 
-Il valore ottenuto viene poi passato a una funzione chiamata ***Funzione di Attivazione***, che ci permette di ottenere un valorecompreso tra due valori impostati. Esistono molte funzioni di attivazione, quella piu adatta per il caso di flappy Bird è la funzione Tangente iperbolica Tanh(x), che ci permette di ottenere un valore compreso tra -1 e 1, in particolare se il numero in uscita dalla somma ponderata è un numero positivo grande il valore tenderà ad 1, se è un numero negativo grande, tenderà ad -1 altrimenti sarà un numero compreso -1 e 1.
+Il risultato ottenuto viene quindi passato alla funzione di attivazione, che permette di ottenere un valore compreso tra due livelli prestabiliti. Tra le varie funzioni disponibili, la Tanh(x), ossia la tangente iperbolica, è quella più adatta per il gioco Flappy Bird. Infatti, permette di ottenere un valore compreso tra -1 e 1. Se il valore in uscita dalla somma ponderata è un numero positivo grande, tenderà a 1; se è un numero negativo grande, tenderà a -1. In ogni altro caso, il valore sarà compreso tra -1 e 1.
 
 <p align="center">
  <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/functions.png" alt= “” width="30%" height="30%">
