@@ -209,7 +209,7 @@ Di seguito vengono riportate le classi principali utilizzate per implementare la
   ***Creazione dei tubi***
   ```ruby
 class Pipe:
-    GAP = 200                   #Distanza costante tra un tubo ed il successivo
+    GAP = 200                   #Distanza costante della fessura tra due tubi
     VEL = 5                     #Velocità costante di movimento del tubo
 
     def __init__(self, x):      #Inizializzazione del tubo
