@@ -76,7 +76,6 @@ L'utilizzo dell'algoritmo porta i seguenti vantaggi rispetto ad analoghi GA:
 3. **La soluzione ottimale NON è SEMPRE la migliore in assoluto**: un problema generale di ogni algorimo di *Reinforcement Learning* è che la ricerca della soluzione deve essere limitata in termini di risorse (tempo e memoria), in termini di iterazioni (con forte dipendeza della qualità dalle iterazioni precedenti) oppure (in particolare per i *GA*) in termini di *punteggio di fitness* per poter dare una risposta in tempi accettabili per il problema. Ciò comporta che la soluzione ottimale trovata potrebbe non essere la migliore in assoluto se l'algoritmo avesse a disposizione maggiori iterazioni.
 4. **Fitness function difficile da implementare** in problemi complessi non è sempre facile implementare una funzione di fitness che risolva il problema in questione (NB: la *fitness funcrion* è specifica per ogni problema affrontato)
 5. **Selezione casuale della popolazione iniziale**: Dato che la prima generazione è selezionata casualmente, è SPESSO necessario molto più tempo rispetto ad altri algoritmi, inoltre non è prevedibile il tempo (o il numero di generazioni) necessario per raggiungere la "situazione ottimale"
-5. Hidden state????????
 
 <br>
 
