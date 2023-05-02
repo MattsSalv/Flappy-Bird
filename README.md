@@ -33,10 +33,7 @@ L'obiettivo del progetto è di impiegare l'algoritmo genetico ***NEAT*** per app
 > - Matplotlib <https://matplotlib.org/stable/users/installing/index.html>
 > - Graphviz <https://pypi.org/project/graphviz/>
 
-Per modificare i parametri dell'algoritmo è necessario, impostarli nel file di configurazione, denominato config.txt
-
 <br> <br>
-
 
 
 ## NEAT
@@ -260,7 +257,7 @@ def draw_window(win, birds, pipes, base, score):  #Creazione degli elementi qual
 
 ### Implementazione di NEAT
 
-Il primo step è impostare i parametri nel file di configurazione di neat.
+Il primo step è impostare i parametri nel file di configurazione di neat. Per modificare i parametri dell'algoritmo è necessario, impostarli nel file di configurazione, denominato *config.txt* \
 Di seguito i parametri più importanti:
  ```ruby
 fitness_criterion     = max                 #Decidiamo quali uccellini tenere in base al  valore del fitness -> Max = Valore più alto
