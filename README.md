@@ -257,8 +257,7 @@ def draw_window(win, birds, pipes, base, score):  #Creazione degli elementi qual
 
 ### Implementazione di NEAT
 
-Il primo step è impostare i parametri nel file di configurazione di neat. Per modificare i parametri dell'algoritmo è necessario, impostarli nel file di configurazione, denominato *config.txt* \
-Di seguito i parametri più importanti:
+Il primo step è impostare i parametri nel file di configurazione di neat. Per modificare i parametri dell'algoritmo è necessario, impostarli nel file di configurazione, denominato *config.txt*. Di seguito i parametri più importanti:
  ```ruby
 fitness_criterion     = max                 #Decidiamo quali uccellini tenere in base al  valore del fitness -> Max = Valore più alto
 fitness_threshold     = 100                 #Soglia che deve raggiungere il fitness prima che finisca il programma   
