@@ -29,7 +29,9 @@ L'obiettivo del progetto è di impiegare l'algoritmo genetico ***NEAT*** per app
 >**NB** Per avviare il programma è necessario installare le seguenti librerie: 
 > - NEAT-Python <https://neat-python.readthedocs.io/en/latest/installation.html> 
 > - PyGame <http://www.pygame.org/downloads.shtml>
-> - ...
+> - Numpy <https://numpy.org/install/>
+> - Matplotlib <https://matplotlib.org/stable/users/installing/index.html>
+> - Graphviz <https://pypi.org/project/graphviz/>
 
 Per modificare i parametri dell'algoritmo è necessario, impostarli nel file di configurazione, denominato config.txt
 
