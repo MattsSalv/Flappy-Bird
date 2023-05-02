@@ -7,5 +7,5 @@ ports:
 tasks:
   - init: pip3 install -r requirements_pip3.txt  
     command: >
-      brew install -r requirements_brew.txt
+      brew install $(cat requirements_brew.txt)
       python3 flappy_bird.py
