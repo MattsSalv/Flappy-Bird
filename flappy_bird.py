@@ -1,8 +1,10 @@
+from __future__ import print_function
 import pygame
 import neat
 import time
 import os
 import random
+import visualize
 pygame.font.init()
 
 #Dimensione delle finestra di gioco
@@ -297,9 +299,10 @@ def run(config_path):
     p.add_reporter(stats)
 
     #configurazione della fitness function, 50 è il numero di volte che chiamerà la funzione main(numero massimo di generazioni)
-    w = p.run(main,50)
+    w = p.run(main,5)
     
-
+    visualize.draw_net(config, w, True)
+    visualize.plot_stats(stats, ylog=False, view=True)
 
 if __name__ == "__main__":
 
