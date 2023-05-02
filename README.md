@@ -126,13 +126,6 @@ Nel caso di Flappy Bird, la rete neurale ha due livelli principali: il primo è 
 
 Il secondo livello, invece, è il "Output Layer", che ha il compito di decidere quale azione intraprendere in base alle informazioni raccolte nel primo livello.
 
-Tra il livello di input e il livello di output c'è uno strato di mezzo chiamato hidden layer (livello nascosto), composto da strati intermedi di neuroni nell'architettura di una rete neurale artificiale. Questi strati elaborano l'input ricevuto e producono dei parametri che saranno utilizzati dallo strato successivo per produrre l'output finale.
-
-<p align="center">
- <img src="https://github.com/MattsSalv/Flappy-Bird/blob/master/images/hiddenlayer.png" alt= “” width="50%" height="0%">
-</p>
-
-
 Ma la vera sfida di Flappy Bird sta nella capacità dell'IA di migliorarsi continuamente, grazie a una serie di "generazioni" in cui viene testata e valutata la sua capacità di sconfiggere il gioco. In questo modo, l'IA impara ad adattarsi a situazioni sempre più difficili, fino a raggiungere un livello di abilità tale da non poter essere più battuta.
 
 Le informazioni che la rete neurale ha a disposzione nell'input layer sono la posizione dell'uccelino e la distanza tra quest'ultimo e i tubi, mentre l'output layer avrà il compito di decidere se far saltare o meno l'uccelino.
