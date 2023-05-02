@@ -81,7 +81,7 @@ L'utilizzo dell'algoritmo porta i seguenti vantaggi rispetto ad analoghi GA:
 
 **NEAT non è un algoritmo di RL in ML** 
 <br>
-L'alogritmo di Reinforcement Learning (RL) fa parte della categoria del Machine Learning (ML), oltre al *Supervised Learning* e all' *Unsupervised Learning*. NEAT in quanto GA fa parte della categoria di *Metaheuristic Stochastic Search*, in quanto ... \
+L'alogritmo di Reinforcement Learning (RL) fa parte della categoria del Machine Learning (ML), oltre al *Supervised Learning* e all' *Unsupervised Learning*. NEAT in quanto GA fa parte della categoria di *Metaheuristic Stochastic Search*, in quanto framework ad alto livello indipendente dal problema \
 Le principali differenze sono:
 1. RL utilizza una struttura relativamente ben compresa e matematicamente fondata dei processi decisionali di Markov, mentre NEAT si basa in gran parte sull'euristica e su mutazioni casuali.
 2. RL cerca di massimizzare la somma di ricompense dell'agente aggiornando la sua *action value function* appresa durante l' *exploration* e *exploitation* con l'ambiente attraverso l'uso dei gradienti, mentre NEAT presenta una fitness function statica e l'operazione di massimizzazione viene effettuata tra agenti di una generazione.
