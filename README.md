@@ -305,9 +305,9 @@ Succesivamene viene creata la finestra di gioco contenente le varie componenti d
 ```ruby
 def main(genomes, config):  
 
-    nets = []                                                                  #SPIEGA
-    ge = []                                                                    #SPIEGA
-    birds = []                                                                 #SPIEGA
+    nets = []                                                                  #Array delle rete neurali
+    ge = []                                                                    #Array contenente i diversi genomi
+    birds = []                                                                 #Array degli uccellini presenti nel gioco
 
     #Creazione della rete neurale per ogni genomaD
     for _, g in genomes:  
