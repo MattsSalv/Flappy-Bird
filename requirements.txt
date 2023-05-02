@@ -3,4 +3,5 @@ pygame
 neat-python
 graphviz
 matplotlib
-
+biggles
+pydot
