@@ -5,5 +5,6 @@ ports:
   - port: 6080
     onOpen: open-preview
 tasks:
-  - init: pip3 install -r requirements.txt
+  - init: pip3 install -r requirements_pip3.txt
+  - init: brew install -r requirements_brew.txt
     command: python3 flappy_bird.py
