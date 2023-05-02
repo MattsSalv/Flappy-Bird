@@ -3,4 +3,4 @@ pygame
 neat-python
 graphviz
 matplotlib
-visualize
+
