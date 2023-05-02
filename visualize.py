@@ -1,152 +1,181 @@
-# -*- coding: UTF-8 -*-
-try:
-    import biggles # Requires biggles: http://biggles.sourceforge.net/
-    has_biggles = True
-except ImportError:
-    print ("Biggles is not installed. If you wish to automatically plot some nice statistics please install it: http://biggles.sourceforge.net/")
-    has_biggles = False
+import warnings
 
-try:
-    import pydot   # Requires PyDot: http://code.google.com/p/pydot/downloads/list
-    has_pydot = True
-except:
-    print ("PyDot is not installed. If you wish to generate a graphical representation of the resulting neural network, please install it: http://code.google.com/p/pydot/")
-    has_pydot = False
+import graphviz
+import matplotlib.pyplot as plt
+import numpy as np
 
-import random
 
-def draw_net(chromosome, id=''):
-    ''' Receives a chromosome and draws a neural network with arbitrary topology. '''
-    output = 'digraph G {\n  node [shape=circle, fontsize=9, height=0.2, width=0.2]'
+def plot_stats(statistics, ylog=False, view=False, filename='avg_fitness.svg'):
+    """ Plots the population's average and best fitness. """
+    if plt is None:
+        warnings.warn("This display is not available due to a missing optional dependency (matplotlib)")
+        return
 
-    # subgraph for inputs and outputs
-    output += '\n  subgraph cluster_inputs { \n  node [style=filled, shape=box] \n    color=white'
-    for ng in chromosome.node_genes:
-        if ng.type== 'INPUT':
-            output += '\n    '+str(ng.id)
-    output += '\n  }'
+    generation = range(len(statistics.most_fit_genomes))
+    best_fitness = [c.fitness for c in statistics.most_fit_genomes]
+    avg_fitness = np.array(statistics.get_fitness_mean())
+    stdev_fitness = np.array(statistics.get_fitness_stdev())
 
-    output += '\n  subgraph cluster_outputs { \n    node [style=filled, color=lightblue] \n    color=white'
-    for ng in chromosome.node_genes:
-        if ng.type== 'OUTPUT':
-            output += '\n    '+str(ng.id)
-    output += '\n  }'
-    # topology
-    for cg in chromosome.conn_genes:
-        output += '\n  '+str(cg.innodeid)+' -> '+str(cg.outnodeid)
-        if cg.enabled is False:
-            output += ' [style=dotted, color=cornflowerblue]'
+    plt.plot(generation, avg_fitness, 'b-', label="average")
+    plt.plot(generation, avg_fitness - stdev_fitness, 'g-.', label="-1 sd")
+    plt.plot(generation, avg_fitness + stdev_fitness, 'g-.', label="+1 sd")
+    plt.plot(generation, best_fitness, 'r-', label="best")
 
-    output += '\n }'
+    plt.title("Population's average and best fitness")
+    plt.xlabel("Generations")
+    plt.ylabel("Fitness")
+    plt.grid()
+    plt.legend(loc="best")
+    if ylog:
+        plt.gca().set_yscale('symlog')
 
-    if has_pydot:
-        g = pydot.graph_from_dot_data(output)
-        g.write('phenotype'+id+'.svg', prog='dot', format='svg')
+    plt.savefig(filename)
+    if view:
+        plt.show()
+
+    plt.close()
+
+
+def plot_spikes(spikes, view=False, filename=None, title=None):
+    """ Plots the trains for a single spiking neuron. """
+    t_values = [t for t, I, v, u, f in spikes]
+    v_values = [v for t, I, v, u, f in spikes]
+    u_values = [u for t, I, v, u, f in spikes]
+    I_values = [I for t, I, v, u, f in spikes]
+    f_values = [f for t, I, v, u, f in spikes]
+
+    fig = plt.figure()
+    plt.subplot(4, 1, 1)
+    plt.ylabel("Potential (mv)")
+    plt.xlabel("Time (in ms)")
+    plt.grid()
+    plt.plot(t_values, v_values, "g-")
+
+    if title is None:
+        plt.title("Izhikevich's spiking neuron model")
     else:
-        print ('You do not have the PyDot package.')
+        plt.title("Izhikevich's spiking neuron model ({0!s})".format(title))
 
-def draw_ff(chromosome):
-    ''' Draws a feedforward neural network '''
+    plt.subplot(4, 1, 2)
+    plt.ylabel("Fired")
+    plt.xlabel("Time (in ms)")
+    plt.grid()
+    plt.plot(t_values, f_values, "r-")
 
-    output = 'digraph G {\n  node [shape=circle, fontsize=9, height=0.2, width=0.2]'
+    plt.subplot(4, 1, 3)
+    plt.ylabel("Recovery (u)")
+    plt.xlabel("Time (in ms)")
+    plt.grid()
+    plt.plot(t_values, u_values, "r-")
 
-    # subgraph for inputs and outputs
-    output += '\n  subgraph cluster_inputs { \n  node [style=filled, shape=box] \n    color=white'
-    for ng in chromosome.node_genes:
-        if ng.type== 'INPUT':
-            output += '\n    '+str(ng.id)
-    output += '\n  }'
+    plt.subplot(4, 1, 4)
+    plt.ylabel("Current (I)")
+    plt.xlabel("Time (in ms)")
+    plt.grid()
+    plt.plot(t_values, I_values, "r-o")
 
-    output += '\n  subgraph cluster_outputs { \n    node [style=filled, color=lightblue] \n    color=white'
-    for ng in chromosome.node_genes:
-        if ng.type== 'OUTPUT':
-            output += '\n    '+str(ng.id)
-    output += '\n  }'
-    # topology
-    for cg in chromosome.conn_genes:
-        output += '\n  '+str(cg.innodeid)+' -> '+str(cg.outnodeid)
-        if cg.enabled is False:
-            output += ' [style=dotted, color=cornflowerblue]'
+    if filename is not None:
+        plt.savefig(filename)
 
-    output += '\n }'
+    if view:
+        plt.show()
+        plt.close()
+        fig = None
 
-    if has_pydot:
-        g = pydot.graph_from_dot_data(output)
-        g.write('feedforward.svg', prog='dot', format='svg')
-    else:
-        print ('You do not have the PyDot package.')
+    return fig
 
-def plot_stats(stats):
-    ''' Plots the population's average and best fitness. '''
-    if has_biggles:
-        generation = [i for i in xrange(len(stats[0]))]
 
-        fitness = [c.fitness for c in stats[0]]
-        avg_pop = [avg for avg in stats[1]]
+def plot_species(statistics, view=False, filename='speciation.svg'):
+    """ Visualizes speciation throughout evolution. """
+    if plt is None:
+        warnings.warn("This display is not available due to a missing optional dependency (matplotlib)")
+        return
 
-        plot = biggles.FramedPlot()
-        plot.title = "Population's average and best fitness"
-        plot.xlabel = r"Generations"
-        plot.ylabel = r"Fitness"
+    species_sizes = statistics.get_species_sizes()
+    num_generations = len(species_sizes)
+    curves = np.array(species_sizes).T
 
-        plot.add(biggles.Curve(generation, fitness, color="red"))
-        plot.add(biggles.Curve(generation, avg_pop, color="blue"))
+    fig, ax = plt.subplots()
+    ax.stackplot(range(num_generations), *curves)
 
-        #plot.show() # X11
-        plot.write_img(600, 300, 'avg_fitness.svg')
-        # width and height doesn't seem to affect the output! 
-    else:
-        print ('You dot not have the Biggles package.')
+    plt.title("Speciation")
+    plt.ylabel("Size per Species")
+    plt.xlabel("Generations")
 
-def plot_spikes(spikes):
-    ''' Plots the trains for a single spiking neuron. '''
-    if has_biggles:
-        time = [i for i in xrange(len(spikes))]
+    plt.savefig(filename)
 
-        plot = biggles.FramedPlot()
-        plot.title = "Izhikevich's spiking neuron model"
-        plot.ylabel = r"Membrane Potential"
-        plot.xlabel = r"Time (in ms)"
+    if view:
+        plt.show()
 
-        plot.add(biggles.Curve(time, spikes, color="green"))
-        plot.write_img(600, 300, 'spiking_neuron.svg')
-        # width and height doesn't seem to affect the output!
-    else:
-        print ('You dot not have the Biggles package.')
+    plt.close()
 
-def plot_species(species_log):
-    ''' Visualizes speciation throughout evolution. '''
-    if has_biggles:
-        plot = biggles.FramedPlot()
-        plot.title = "Speciation"
-        plot.ylabel = r"Size per Species"
-        plot.xlabel = r"Generations"
-        generation = [i for i in xrange(len(species_log))]
 
-        species = []
-        curves = []
+def draw_net(config, genome, view=False, filename=None, node_names=None, show_disabled=True, prune_unused=False,
+             node_colors=None, fmt='svg'):
+    """ Receives a genome and draws a neural network with arbitrary topology. """
+    # Attributes for network nodes.
+    if graphviz is None:
+        warnings.warn("This display is not available due to a missing optional dependency (graphviz)")
+        return
 
-        for gen in xrange(len(generation)):
-            for j in xrange(len(species_log), 0, -1):
-                try:
-                    species.append(species_log[-j][gen] + sum(species_log[-j][:gen]))
-                except IndexError:
-                    species.append(sum(species_log[-j][:gen]))
-            curves.append(species)
-            species = []
+    # If requested, use a copy of the genome which omits all components that won't affect the output.
+    if prune_unused:
+        genome = genome.get_pruned_copy(config.genome_config)
 
-        s1 = biggles.Curve(generation, curves[0])
+    if node_names is None:
+        node_names = {}
 
-        plot.add(s1)
-        plot.add(biggles.FillBetween(generation, [0]*len(generation), generation, curves[0], color=random.randint(0,90000)))
+    assert type(node_names) is dict
 
-        for i in range(1, len(curves)):
-            c = biggles.Curve(generation, curves[i])
-            plot.add(c)
-            plot.add(biggles.FillBetween(generation, curves[i-1], generation, curves[i], color=random.randint(0,90000)))
+    if node_colors is None:
+        node_colors = {}
 
-        
-        plot.write_img(1024, 800, 'speciation.svg')
+    assert type(node_colors) is dict
 
-    else:
-        print ('You dot not have the Biggles package.')
+    node_attrs = {
+        'shape': 'circle',
+        'fontsize': '9',
+        'height': '0.2',
+        'width': '0.2'}
+
+    dot = graphviz.Digraph(format=fmt, node_attr=node_attrs)
+
+    inputs = set()
+    for k in config.genome_config.input_keys:
+        inputs.add(k)
+        name = node_names.get(k, str(k))
+        input_attrs = {'style': 'filled', 'shape': 'box', 'fillcolor': node_colors.get(k, 'lightgray')}
+        dot.node(name, _attributes=input_attrs)
+
+    outputs = set()
+    for k in config.genome_config.output_keys:
+        outputs.add(k)
+        name = node_names.get(k, str(k))
+        node_attrs = {'style': 'filled', 'fillcolor': node_colors.get(k, 'lightblue')}
+
+        dot.node(name, _attributes=node_attrs)
+
+    used_nodes = set(genome.nodes.keys())
+    for n in used_nodes:
+        if n in inputs or n in outputs:
+            continue
+
+        attrs = {'style': 'filled',
+                 'fillcolor': node_colors.get(n, 'white')}
+        dot.node(str(n), _attributes=attrs)
+
+    for cg in genome.connections.values():
+        if cg.enabled or show_disabled:
+            # if cg.input not in used_nodes or cg.output not in used_nodes:
+            #    continue
+            input, output = cg.key
+            a = node_names.get(input, str(input))
+            b = node_names.get(output, str(output))
+            style = 'solid' if cg.enabled else 'dotted'
+            color = 'green' if cg.weight > 0 else 'red'
+            width = str(0.1 + abs(cg.weight / 5.0))
+            dot.edge(a, b, _attributes={'style': style, 'color': color, 'penwidth': width})
+
+    dot.render(filename, view=view)
+
+    return dot
