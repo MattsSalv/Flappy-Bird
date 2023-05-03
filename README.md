@@ -169,9 +169,9 @@ Ogni popolazione è composta da X uccellini(agenti intelligenti), dove ogn'uno d
 
 Il fitness si riferisce alla capacità di un algoritmo o di un modello di adattarsi e migliorare le proprie prestazioni attraverso l'allenamento e l'ottimizzazione, viene spesso utilizzata come metrica di valutazione per algoritmi di apprendimento automatico, come le reti neurali, per selezionare i modelli più performanti e migliorare le loro capacità predittive.
 
-In Flappy Bird, il fitness viene valutato in base a quanto l'uccellino avanza nel gioco, in particolare ogni fotogramma che avanza nel gioco ottiene un punto.
+In Flappy Bird, il fitness viene valutato in base a quanto l'uccellino avanza nel gioco, in particolare ogni fotogramma che avanza nel gioco o tubo che supera ottiene dei punti.
 
-alla fine della simulazione si prendono gli uccellini con il punteggio di fitness più elevato e si crea una nuova popolazione partendo da questi attraverso una mutazione. La nuova popolazione sarà migliore della precedente e continuiamao con questo processo fino a quando non saremo soddisfatti.
+Alla fine della simulazione si prendono gli uccellini con il punteggio di fitness più elevato e si crea una nuova popolazione partendo da questi. La nuova popolazione sarà migliore della precedente e continuiamo con questo processo fino a quando non saremo soddisfatti.
 
 
 <br> <br>
