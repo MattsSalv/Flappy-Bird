@@ -314,11 +314,6 @@ def main(genomes, config):
         g.fitness = 0                                                          #Valore del fitness di ogni genoma settato a 0
         net = neat.nn.FeedForwardNetwork.create(g, config)                     #Creazione della rete neurale, passandogli il genoma e il file di configurazione
         birds.append(Bird(230, 350))                                           #Creazione dell'uccellino relativo al genoma
-
-    base = Base(730)                                                           #SPIEGA
-    pipes = [Pipe(700)]                                                        #SPIEGA
-
-    score = 0                                                                  #SPIEGA
 ```
 
 <br> <br>
