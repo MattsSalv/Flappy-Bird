@@ -13,12 +13,6 @@ La grande sfida di Flappy Bird sta nel cercare di ottenere il punteggio più alt
 
 L'obiettivo del progetto è di impiegare l'algoritmo genetico ***NEAT*** per apprendere a giocare a ***Flappy Bird*** mediante la riproduzione del gioco in Python utilizzando la libreria ***NEAT-Python*** per la realizzazione dell'algoritmo genetico.
 
-<br>
-
-
-<br>
-
-
 
 <br> <br>
 
