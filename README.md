@@ -335,7 +335,7 @@ while run:
                   if len(pipes) > 1 and birds[0].x > pipes[0].x + pipes[0].PIPE_TOP.get_width(): #RIGUARDARE
                       pipe_ind = 1
 
-              else:                                                              #Se non ci sono più uccellini, lascio il gioco
+              else:                                                              #Se non ci sono più uccellini, interrompo il ciclo
                   run = False
                   break  
 
