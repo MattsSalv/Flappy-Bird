@@ -161,7 +161,7 @@ Grazie a questo valore il nodo di output sarà in grado di eseguire una determin
 
 ***Come vengono scelti Weights e Bias?***
 
-Il Weight e il bias per il caso di Flappy Bird vengono impostati in modo automatico dalla macchina, per fare ciò è stato utilizzato l'algoritmo ***NEAT***(NeuroEvolution of Augmenting Topologies) è un algoritmo di intelligenza artificiale che si basa sulla selezione naturale. (AGGIUNGERE QUALCHE RIGA SU NEAT)
+Il Weight e il bias per il caso di Flappy Bird vengono impostati in modo automatico dalla macchina, per fare ciò è stato utilizzato l'algoritmo ***NEAT***(NeuroEvolution of Augmenting Topologies) è un algoritmo di intelligenza artificiale che si basa sulla selezione naturale.
 
 Per il primo step non sappiamo quale può essere il valore giusto per i Weights e per il Bias e perciò è necessario eseguire dei test in modo completamente casuale, creando una popolazione di uccellini ampia.
 
@@ -178,7 +178,6 @@ alla fine della simulazione si prendono gli uccellini con il punteggio di fitnes
 
 
 ## FLAPPY BIRD IA CODE
-***Spiegazione del codice per intero (solo le parti essenziali) (DA CANCELLARE)***
 
 <br>
 
@@ -332,7 +331,7 @@ while run:
 
               pipe_ind = 0
               if len(birds) > 0:
-                  if len(pipes) > 1 and birds[0].x > pipes[0].x + pipes[0].PIPE_TOP.get_width(): #RIGUARDARE
+                  if len(pipes) > 1 and birds[0].x > pipes[0].x + pipes[0].PIPE_TOP.get_width():
                       pipe_ind = 1
 
               else:                                                              #Se non ci sono più uccellini, interrompo il ciclo
