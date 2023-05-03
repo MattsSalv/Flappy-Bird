@@ -165,7 +165,7 @@ Il Weight e il bias per il caso di Flappy Bird vengono impostati in modo automat
 
 Per il primo step non sappiamo quale può essere il valore giusto per i Weights e per il Bias e perciò è necessario eseguire dei test in modo completamente casuale, creando una popolazione di uccellini ampia.
 
-Ogni popolazione è composta da 100 uccellini, dove ogni uccellino ha una propria rete neurale che lo controlla, ogni rete neurale verrà testata ed allenata e successivamente verrà valutato il loro Fitness.
+Ogni popolazione è composta da X uccellini(agenti intelligenti), dove ogn'uno di questo ha una propria rete neurale che lo controlla, ogni rete neurale verrà testata ed allenata e successivamente verrà valutato il loro Fitness.
 
 Il fitness si riferisce alla capacità di un algoritmo o di un modello di adattarsi e migliorare le proprie prestazioni attraverso l'allenamento e l'ottimizzazione, viene spesso utilizzata come metrica di valutazione per algoritmi di apprendimento automatico, come le reti neurali, per selezionare i modelli più performanti e migliorare le loro capacità predittive.
 
