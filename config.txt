@@ -25,55 +25,55 @@ bias_mutate_rate        = 0.7  #La probabilità che la mutazione cambi il bias d
 bias_replace_rate       = 0.1  #La probabilità che la mutazione sostituisca il bias di un nodo con un nuovo valore casuale (come se fosse un nuovo nodo)
 
 # genome compatibility options
-compatibility_disjoint_coefficient = 1.0
-compatibility_weight_coefficient   = 0.5
+compatibility_disjoint_coefficient = 1.0  #Il coefficiente per il contributo dei geni disgiunti e in eccesso alla distanza genomica
+compatibility_weight_coefficient   = 0.5  #Il coefficiente per ogni differenza di peso, bias o moltiplicatore di risposta che contribuisce alla distanza genomica (per nodi o connessioni omologhi). Questo è anche il valore da aggiungere per le differenze nelle funzioni di attivazione, nelle funzioni di aggregazione o nello stato di abilitazione/disabilitazione
 
 # connection add/remove rates
-conn_add_prob           = 0.5
-conn_delete_prob        = 0.5
+conn_add_prob           = 0.5  #La probabilità che la mutazione aggiunga una connessione tra i nodi esistenti
+conn_delete_prob        = 0.5  #La probabilità che la mutazione elimini una connessione esistente
 
 # connection enable options
-enabled_default         = True
-enabled_mutate_rate     = 0.01
+enabled_default         = True  #L'attributo abilitato di default delle connessioni appena create
+enabled_mutate_rate     = 0.01  #La probabilità che la mutazione sostituisca lo stato abilitato di una connessione
 
-feed_forward            = True
-initial_connection      = full
+feed_forward            = True  #Se la valutazione è True, le reti generate non potranno avere connessioni ricorrenti (saranno feedforward). Altrimenti possono essere (ma non sono obbligate a esserlo) ricorrenti
+initial_connection      = full  #Specifica la connettività iniziale dei genomi appena creati. FULL significa che ogni nodo di ingresso è collegato a tutti gli hidden nodes e di uscita e ogni hidden node è collegato a tutti i nodi di uscita.
 
 # node add/remove rates
-node_add_prob           = 0.2
-node_delete_prob        = 0.2
+node_add_prob           = 0.2  #La probabilità che la mutazione aggiunga un nuovo nodo
+node_delete_prob        = 0.2  #La probabilità che la mutazione elimini un nodo esistente
 
 # network parameters
-num_hidden              = 0
-num_inputs              = 3
-num_outputs             = 1
+num_hidden              = 0  #Il numero di hidden nodes da aggiungere a ciascun genoma della popolazione iniziale
+num_inputs              = 3  #Il numero di nodi di ingresso, attraverso i quali la rete riceve gli input
+num_outputs             = 1  #Il numero di nodi di uscita, a cui la rete fornisce le uscite
 
 # node response options
-response_init_mean      = 1.0
-response_init_stdev     = 0.0
-response_max_value      = 30.0
-response_min_value      = -30.0
-response_mutate_power   = 0.0
-response_mutate_rate    = 0.0
-response_replace_rate   = 0.0
+response_init_mean      = 1.0  #La media della distribuzione normale/gaussiana, se viene utilizzata per selezionare i valori degli attributi del moltiplicatore di risposta per i nuovi nodi
+response_init_stdev     = 0.0  #La deviazione standard della distribuzione normale/gaussiana, se viene utilizzata per selezionare i moltiplicatori di risposta per i nuovi nodi
+response_max_value      = 30.0  #Il moltiplicatore di risposta massimo consentito. I moltiplicatori di risposta superiori a questo valore verranno bloccati a questo valore
+response_min_value      = -30.0  #Il moltiplicatore di risposta minimo consentito. I moltiplicatori di risposta inferiori a questo valore verranno bloccati a questo valore
+response_mutate_power   = 0.0  #La deviazione standard della distribuzione normale/gaussiana centrata su zero da cui viene estratta una mutazione del moltiplicatore di risposta
+response_mutate_rate    = 0.0  #La probabilità che la mutazione cambi il moltiplicatore di risposta di un nodo con l'aggiunta di un valore casuale
+response_replace_rate   = 0.0  #La probabilità che la mutazione sostituisca il moltiplicatore di risposta di un nodo con un nuovo valore casuale (come se fosse un nuovo nodo)
 
 # connection weight options
-weight_init_mean        = 0.0
-weight_init_stdev       = 1.0
-weight_max_value        = 30
-weight_min_value        = -30
-weight_mutate_power     = 0.5
-weight_mutate_rate      = 0.8
-weight_replace_rate     = 0.1
+weight_init_mean        = 0.0  #La media della distribuzione normale/gaussiana utilizzata per selezionare i valori degli attributi di peso per le nuove connessioni
+weight_init_stdev       = 1.0  #La deviazione standard della distribuzione normale/gaussiana utilizzata per selezionare i valori di peso per le nuove connessioni.
+weight_max_value        = 30  #Il valore massimo di peso consentito. I pesi superiori a questo valore verranno bloccati a questo valore
+weight_min_value        = -30  #Il valore di peso minimo consentito. I pesi inferiori a questo valore verranno bloccati a questo valore
+weight_mutate_power     = 0.5  #La deviazione standard della distribuzione normale/gaussiana centrata su zero da cui viene estratta una mutazione del valore del peso
+weight_mutate_rate      = 0.8  #La probabilità che la mutazione modifichi il peso di una connessione aggiungendo un valore casuale
+weight_replace_rate     = 0.1  #La probabilità che la mutazione sostituisca il peso di una connessione con un nuovo valore casuale (come se si trattasse di una nuova connessione)
 
 [DefaultSpeciesSet]
-compatibility_threshold = 3.0
+compatibility_threshold = 3.0  #Gli individui la cui distanza genomica è inferiore a questa soglia sono considerati appartenenti alla stessa specie
 
 [DefaultStagnation]
-species_fitness_func = max
-max_stagnation       = 20
-species_elitism      = 2
+species_fitness_func = max  #La funzione utilizzata per calcolare il fitness delle specie
+max_stagnation       = 20  #Le specie che non hanno mostrato miglioramenti in più di questo numero di generazioni saranno considerate stagnanti e rimosse
+species_elitism      = 2  #Il numero di specie che saranno protette dalla stagnazione; lo scopo principale è quello di prevenire le estinzioni totali causate dalla stagnazione di tutte le specie prima che ne nascano di nuove
 
 [DefaultReproduction]
-elitism            = 2
-survival_threshold = 0.2
+elitism            = 2  #Il numero di individui più idonei di ogni specie che saranno conservati così come sono da una generazione all'altra
+survival_threshold = 0.2  #La frazione di ogni specie che può riprodursi ad ogni generazione
