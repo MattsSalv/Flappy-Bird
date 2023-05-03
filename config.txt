@@ -1,28 +1,28 @@
 [NEAT]
-fitness_criterion     = max                 
-fitness_threshold     = 100                 
-pop_size              = 20                  
-reset_on_extinction   = False
+fitness_criterion     = max    #La funzione utilizzata per calcolare il criterio di terminazione dall'insieme delle fitness del genoma.             
+fitness_threshold     = 100    #Quando il fitness calcolato da fitness_criterion raggiunge o supera questa soglia, il processo di evoluzione termina,              
+pop_size              = 20     #Il numero di individui in ogni generazione.             
+reset_on_extinction   = False  #Se è True, quando tutte le specie si estinguono simultaneamente a causa della stagnazione, viene creata una nuova popolazione casuale. Se False, verrà lanciata una CompleteExtinctionException
 
 [DefaultGenome]
 # node activation options
-activation_default      = tanh
-activation_mutate_rate  = 0.0
-activation_options      = tanh
+activation_default      = tanh  #Funzione di attivazione che definisce il valore di outpit dati degli input
+activation_mutate_rate  = 0.0   #La probabilità che la mutazione sostituisca la funzione di attivazione del nodo
+activation_options      = tanh  #Un elenco delle funzioni di attivazione che possono essere utilizzate dai nodi
 
 # node aggregation options
-aggregation_default     = sum
-aggregation_mutate_rate = 0.0
-aggregation_options     = sum
+aggregation_default     = sum  #Funzione di aggregazione dei valori di input
+aggregation_mutate_rate = 0.0  #La probabilità che la mutazione sostituisca la funzione di aggregazione del nodo
+aggregation_options     = sum  #Un elenco delle funzioni di aggregazione che possono essere utilizzate dai nodi
 
 # node bias options
-bias_init_mean          = 0.0
-bias_init_stdev         = 1.0
-bias_max_value          = 30.0
-bias_min_value          = -30.0
-bias_mutate_power       = 0.5
-bias_mutate_rate        = 0.7
-bias_replace_rate       = 0.1
+bias_init_mean          = 0.0  #La media della distribuzione normale/gaussiana, se viene utilizzata per selezionare i valori degli attributi bias per i nuovi nodi
+bias_init_stdev         = 1.0  #La deviazione standard della distribuzione normale/gaussiana, se viene utilizzata per selezionare i valori di bias per i nuovi nodi
+bias_max_value          = 30.0  #Il valore di bias massimo consentito. Le polarizzazioni superiori a questo valore vengono bloccate a questo valore
+bias_min_value          = -30.0  #Il valore di bias minimo consentito. Le polarizzazioni inferiori a questo valore vengono bloccate a questo valore
+bias_mutate_power       = 0.5  #La deviazione standard della distribuzione normale/gaussiana centrata su zero da cui viene estratta una mutazione del valore di bias
+bias_mutate_rate        = 0.7  #La probabilità che la mutazione cambi il bias di un nodo aggiungendo un valore casuale
+bias_replace_rate       = 0.1  #La probabilità che la mutazione sostituisca il bias di un nodo con un nuovo valore casuale (come se fosse un nuovo nodo)
 
 # genome compatibility options
 compatibility_disjoint_coefficient = 1.0
