@@ -4,7 +4,6 @@ import neat
 import time
 import os
 import random
-import visualize
 pygame.font.init()
 
 #Dimensione delle finestra di gioco
