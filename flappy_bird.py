@@ -275,6 +275,7 @@ def main(genomes, config):
 
                 for x, bird in enumerate(birds): #Controlla le collissioni del singolo uccellino con il suolo e che non vada oltre la parte superiore dello schermo
                     if bird.y + bird.img.get_height() - 10 >= 730 or bird.y < -50:
+                        ge[x].fitness -= 1 #il fitness dell'uccellino che ha superato il cielo o il terreno viene decrementato a 1 per non influenzare gli altri
                         birds.pop(x)
                         nets.pop(x)
                         ge.pop(x)    
