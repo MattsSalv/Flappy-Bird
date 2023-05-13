@@ -313,7 +313,6 @@ def main(genomes, config):
 <br> <br>
 
 Proseguendo la funzone di fitness, avvia un ciclo while che si interrompe solamente se viene chiusa la finestra di gioco oppure se non ci sono piu uccellini in vita.
-##INSERIRE LA CONDIZIONE DA GUARDARE
 
 All'interno di questo ciclo troviamo un ciclo for che si occupa di incrementare di 0.1 il fitness di ogni genoma, per ogni frame che l'uccellino avanza. Successivamente viene attivata la rete neurale di ogni uccellino passandogli la posizione di quest'ultimo e le distanze tra l'uccellino e il tubo superiore ed inferiore, viene eseguita la funzione di attivazione, tanh, che ritornerà un valore compreso tra -1 e 1, se il valore è maggiore di 0.5, l'uccellino salta.
 
